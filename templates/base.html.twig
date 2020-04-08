@@ -1,12 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Anim'Alls !{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                  crossorigin="anonymous">
+        {% endblock %}
+
     </head>
+
     <body>
+
+    {# s'il y a un utilisateur connecté et qu'il a le rôle ROLE_ADMIN,
+    donnant accès à la Gestion des Annonces (qui doivent donc donner accès aux animaux, race et espèces)
+    et des Users #}
+    {% if is_granted('ROLE_ADMIN') %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <span class="navbar-brand">Admin</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarAdminContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarAdminContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Gestion Annonces
+                            {# et donc des aAnimaux, Races et Espèces #}
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Gestion Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    {% endif %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="">Anim-Alls</a>
+
+            {# affiche le rendu de la méthode menu() de CategoryController #}
+            {# {{ render(controller('App\\Controller\\CategoryController::menu')) }} #}
+
+            <ul class="navbar-nav">
+                {# app.user = l'utilisateur connecté #}
+                {# app.user is null = l'utilisateur n'est pas connecté #}
+
+            {# pour le retour à l'index #}
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Accueil
+                    </a>
+                </li>
+
+            {# pour en savoir plus sur l'association #}
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Qui sommes-nous ?
+                    </a>
+                </li>
+
+            {# pour contacter l'association #}
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Contact
+                    </a>
+                </li>
+
+                {# pour les Inscriptions et les Connexion #}
+                {% if app.user is null %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Inscription
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Connexion
+                        </a>
+                    </li>
+                {% else %}
+
+                    <!-- pour les Connexion / Déconnexion, Admin ou User -->
+                    <li class="nav-item">
+                            <span class="navbar-text">
+                                {{ app.user }}
+                            </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Déconnexion
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- lourd copier/coller, pour préparer le terrain
+    pour les messages Flash (erreurs, prévention, et autres alertes) -->
+
+    <div class="container">
+        {# affichage des messages flash #}
+        {% for type, messages in app.session.flashBag.all %}
+            {# pour la classe alert-danger de bootstrap #}
+            {% if type == 'error' %}
+                {% set type = 'danger' %}
+            {% endif %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }} mt-2">
+                    {{ message|raw }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </div>
+
+        {% block javascripts %}
+            <script
+                    src="https://code.jquery.com/jquery-3.4.1.min.js"
+                    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                    crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                    crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                    crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>

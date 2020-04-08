@@ -21,6 +21,11 @@ class Specie
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Race", cascade={"persist", "remove"}, mappedBy="species")
+     */
+    private $races;
+
     public function getId(): ?int
     {
         return $this->id;

@@ -22,7 +22,7 @@ class Race
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Specie", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Specie", cascade={"persist", "remove"})
      */
     private $species;
 

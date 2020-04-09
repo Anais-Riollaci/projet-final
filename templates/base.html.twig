@@ -33,7 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             Gestion Annonces
-                            {# et donc des aAnimaux, Races et Espèces #}
+                            {# et donc des Animaux, Races et Espèces #}
                         </a>
 
                     </li>
@@ -66,13 +66,6 @@
                     </a>
                 </li>
 
-            {# pour en savoir plus sur l'association #}
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        Qui sommes-nous ?
-                    </a>
-                </li>
-
             {# pour contacter l'association #}
                 <li class="nav-item">
                     <a class="nav-link" href="">
@@ -80,15 +73,21 @@
                     </a>
                 </li>
 
-                {# pour les Inscriptions et les Connexion #}
+                {# pour les Inscriptions et les Connexion
+                Le href a été rajouté pour je ne sais quelle raison et fout le boxon,
+                je le déplace ici en attendant de voir : {{ path('registration') }}
+                #}
                 {% if app.user is null %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('registration') }}">
+                        <a class="nav-link" href="">
                             Inscription
                         </a>
                     </li>
+                    {# Le href du 'log in' peut poser problème,
+                    à déplacer ici pour le moment quand nécessaire :
+                    #}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('user_login') }}">
+                        <a class="nav-link" href="{{ path ('user_login') }}">
                             Connexion
                         </a>
                     </li>
@@ -100,6 +99,10 @@
                                 {{ app.user }}
                             </span>
                     </li>
+
+                    {# Le href du 'log out' peut poser problème,
+                    à déplacer ici quand nécessaire :
+                    #}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path ('user_logout') }}">
                             Déconnexion

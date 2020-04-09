@@ -83,12 +83,12 @@
                 {# pour les Inscriptions et les Connexion #}
                 {% if app.user is null %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ path('registration') }}">
                             Inscription
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ path('user_login') }}">
                             Connexion
                         </a>
                     </li>
@@ -101,7 +101,7 @@
                             </span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ path ('user_logout') }}">
                             Déconnexion
                         </a>
                     </li>

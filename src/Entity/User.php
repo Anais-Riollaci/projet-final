@@ -44,7 +44,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="10", minMessage="Votre numéro doit faire minimum 10 caracteres")
+     * @Assert\Length(min="10", max="10", minMessage="Votre numéro de téléphone doit contenir 10 chiffres")
      */
     private $phoneNumber;
 
@@ -67,6 +67,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Length(min="5", max="5", minMessage="Votre code postal doit contenir 5 caractères")
      */
     private $zipCode;
 

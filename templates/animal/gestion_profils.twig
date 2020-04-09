@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+
+        {# normalement, seulement accessible aux Admin pour les changer #}
+
+{% block body %}
+    <h1>La Gestion des Profils (intégration database des Animaux à Adopter)</h1>
+
+    <div class="card bg-light mb-5">
+        <div class="card-body">
+
+        {{ form_start(form) }}
+
+            <div class="row">
+                {{ form_row(form.name,
+                    {
+                        'label': 'Nom :', 'attr':{'placeholder': 'Le nom du pauvre bonhomme à aodpter'}
+                    }) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.gender,
+                    {
+                        'label': 'Sexe :', 'attr':{'placeholder': 'Son sexe'}
+                    }) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.birthDate,
+                    {
+                        'label': 'Date de naissance:', 'attr':{'placeholder': 'JJ/MM/AA'}
+                    }) }}
+            </div>
+
+            <div class="row">
+                {{ form_row(form.species,
+                    {
+                        'label': 'Espèce :', 'attr':{'placeholder': 'Son espèce'}
+                    }) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.race,
+                    {
+                        'label': 'Race :', 'attr':{'placeholder': 'Sa race particulière'}
+                    }) }}
+            </div>
+
+            <div class="row">
+                {# Il s'agit du comportement / apparence générale, et à mon sens,
+                il faudra faire en sorte de pouvoir en mettre plusieurs.
+                Pour le moment, je n'en laisse qu'un seul, le temps qu'on termine le squelette général.
+                On doit pouvoir s'en servir comme des mots-clés pour une recherche.
+                #}
+                {{ form_row(form.category,
+                    {
+                        'label': 'Comportement et Apparence :', 'attr':{'placeholder': 'Comportement et Apparence'}
+                    }) }}
+            </div>
+
+        {# Je laisse l'image sous ce format pour le moment. #}
+        {{ form_row(form.image) }}
+        {% if original_image is not null %}
+            <p>Actuellement :</p>
+            {#
+            Une seule image pour le moment, je dois voir pour en mettre plusieurs
+            Je garde l'ancienne src comme inspiration : {{ asset('images/' ~ original_image) }}
+             #}
+            <img src="" height="150px">
+        {% endif %}
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">
+                Enregistrer
+            </button>
+            {#
+            Ici aussi, je garde la précédente href comme inspiration: {{ path('app_admin_article_index') }}
+            #}
+            <a href="" class="btn btn-outline-secondary">
+                Retour
+            </a>
+        </div>
+
+        {{ form_end(form) }}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+{% endblock %}

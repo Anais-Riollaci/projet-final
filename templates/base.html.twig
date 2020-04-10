@@ -72,13 +72,10 @@
                     </a>
                 </li>
 
-                {# pour les Inscriptions et les Connexion
-                Le href a été rajouté pour je ne sais quelle raison et fout le boxon,
-                je le déplace ici en attendant de voir : {{ path('registration') }}
-                #}
+                {# pour les Inscriptions et les Connexion#}
                 {% if app.user is null %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ path("registration") }}">
                             Inscription
                         </a>
                     </li>

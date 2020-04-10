@@ -12,6 +12,7 @@
         <li class="list-group-item">Ville: {{ user.city }}</li>
         <li class="list-group-item">N°téléphone: {{ user.phoneNumber }}</li>
         <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">Role: {{ user.role }}</li>
     </ul>
 
         <a class="nav-link" href="{{ path('user_modif', {'id': user.id}) }}" class="btn btn-success">Modifier</a>

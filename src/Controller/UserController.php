@@ -25,12 +25,8 @@ class UserController extends AbstractController
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function registration(
-        User $user = null,
-         Request $request,
-         EntityManagerInterface $manager,
-         UserPasswordEncoderInterface $encoder
-            )
+    public function registration(User $user = null, Request $request, EntityManagerInterface $manager,
+                                 UserPasswordEncoderInterface $encoder)
     {
         if(!$user){
             $user = new User();
@@ -52,7 +48,7 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/inscription.html.twig', [
-            'controller_name' => 'UserController',
+            'controller_name' => 'UserAdminController',
 
             'form' => $form->createView(),
             'modifUser' => $user->getId() !==null
@@ -96,18 +92,5 @@ class UserController extends AbstractController
             'user' => $user
         ]);
     }
-
-    /*************************************GESTION**************************************/
-
-    /**
-     * @Route("/user/admin", name="user_admin")
-     */
-    public function admin(){
-        $user = $this->getUser();
-        return $this->render('admin/user.html.twig',[
-            'user' => $user
-        ]);
-    }
-
 
 }

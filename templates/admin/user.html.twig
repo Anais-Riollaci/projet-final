@@ -16,19 +16,20 @@
             <th scope="col">Ville</th>
             <th scope="col">N°téléphone</th>
             <th scope="col">Email</th>
-            <th scope="col">Mot de passe</th>
         </tr>
         <tr>
-            <th scope="row">{{ user.id }}</th>
-            <th scope="row">{{ user.lastName }}</th>
-            <th scope="row">{{ user.firstName }}</th>
-            <th scope="row">{{ user.birthDate | date('d/m/Y')}}</th>
-            <th scope="row">{{ user.street }}</th>
-            <th scope="row">{{ user.zipCode }}</th>
-            <th scope="row">{{ user.city }}</th>
-            <th scope="row">{{ user.phoneNumber }}</th>
-            <th scope="row">{{ user.email }}</th>
-            <th scope="row">{{ user.password }}</th>
+            {% for users in user %}
+            <th scope="row">{{ users.id }}</th>
+            <th scope="row">{{ users.lastName }}</th>
+            <th scope="row">{{ users.firstName }}</th>
+            <th scope="row">{{ users.birthDate | date('d/m/Y')}}</th>
+            <th scope="row">{{ users.street }}</th>
+            <th scope="row">{{ users.zipCode }}</th>
+            <th scope="row">{{ users.city }}</th>
+            <th scope="row">{{ users.phoneNumber }}</th>
+            <th scope="row">{{ users.email }}</th>
+        <tr>
+            {% endfor %}
         </tr>
     </table>
 {% endblock %}

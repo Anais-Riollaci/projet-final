@@ -16,17 +16,21 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
-
+/**********************************INSCRIPTION***************************************/
     /**
      * @Route("/inscription", name="registration")
+     * @Route("/user/{id}/modif", name="user_modif")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    public function registration(User $user = null, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        $user = new User();
+        if(!$user){
+            $user = new User();
+        }
+
 
         $form = $this->createForm(InscriptionType::class, $user);
 
@@ -45,17 +49,19 @@ class UserController extends AbstractController
         return $this->render('user/inscription.html.twig', [
             'controller_name' => 'UserController',
 
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'modifUser' => $user->getId() !==null
         ]);
     }
 
+/*********************************************CONNEXION*******************************************/
     /**
      * @Route ("/connexion" , name="user_login")
      */
     public function login(AuthenticationUtils $authenticationUtils){
 
         $error = $authenticationUtils->getLastAuthenticationError();
-        dump($error);
+
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -69,8 +75,34 @@ class UserController extends AbstractController
             ]);
     }
 
+    /*************************************DECONNEXION***************************************/
     /**
      * @Route("/deconnexion", name="user_logout")
      */
     public function logout(){}
+
+    /**********************************PROFIL UTILISATEUR********************************/
+    /**
+     * @Route ("/user/profil", name="user_show")
+     */
+    public function show(){
+        $user = $this->getUser();
+        return $this->render('user/show.html.twig',[
+            'user' => $user
+        ]);
+    }
+
+    /*************************************GESTION**************************************/
+
+    /**
+     * @Route("/user/admin", name="user_admin")
+     */
+    public function admin(){
+        $user = $this->getUser();
+        return $this->render('admin/user.html.twig',[
+            'user' => $user
+        ]);
+    }
+
+
 }

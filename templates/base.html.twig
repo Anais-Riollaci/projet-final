@@ -92,11 +92,11 @@
                     </li>
                 {% else %}
 
-                    <!-- pour les Connexion / Déconnexion, Admin ou User -->
+                    <!-- pour les Connexion / Déconnexion, admin ou User -->
                     <li class="nav-item">
-                            <span class="navbar-text">
-                                {{ app.user }}
-                            </span>
+                           <a class="nav-link" href="{{ path ('user_show')}}">
+                                    {{ app.user }}
+                           </a>
                     </li>
 
                     {# Le href du 'log out' peut poser problème,

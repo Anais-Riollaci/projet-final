@@ -28,7 +28,13 @@
                 </div>
             </div>
 
-    <button type="submit" class=""btn btn-success>Enregistrer</button>
+    <button type="submit" class="btn btn-success">
+        {% if modifUser %}
+            Modifier
+        {% else %}
+            Inscription
+        {% endif %}
+    </button>
 
     {{ form_end(form) }}
 

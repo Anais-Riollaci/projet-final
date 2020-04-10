@@ -76,6 +76,11 @@ class User implements UserInterface
      */
     private $city;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
+
     public function __toString()
     {
         return $this->firstName . ' ' . $this->lastName;
@@ -217,5 +222,17 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
     }
 }

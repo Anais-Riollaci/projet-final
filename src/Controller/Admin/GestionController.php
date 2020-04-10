@@ -4,7 +4,7 @@
 // et donc à la gestion côtés Admin des fiches des animaux
 
 
-namespace App\Controller\admin;
+namespace App\Controller\Admin;
 
 
 use App\Repository\CategoryRepository;
@@ -17,18 +17,19 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class GestionController
  * @package App\Controller\admin
  *
- * @Route("/")
+ *
  */
-
 // information pour la route plus générale, surement en le plaçant dans la section réservée aux Admin
 
 class GestionController extends AbstractController
 {
+    /**
+     * @Route("/gestion/profil")
+     */
     public function gestionprofils(Request $request)
     {
 
     }
-
 
     /**
      * @Route("/gestion/category")

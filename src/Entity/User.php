@@ -79,7 +79,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
+    private $role = 'ROLE_USER';
 
     public function __toString()
     {
@@ -212,9 +212,8 @@ class User implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
-        return ['ROLE_USER'];
+        return [$this->getRole()];
     }
-
 
     /**
      * @inheritDoc

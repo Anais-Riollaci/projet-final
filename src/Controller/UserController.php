@@ -25,7 +25,12 @@ class UserController extends AbstractController
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function registration(User $user = null, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    public function registration(
+        User $user = null,
+         Request $request,
+         EntityManagerInterface $manager,
+         UserPasswordEncoderInterface $encoder
+            )
     {
         if(!$user){
             $user = new User();

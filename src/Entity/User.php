@@ -79,7 +79,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
+    private $role = 'ROLE_USER';
 
     public function __toString()
     {

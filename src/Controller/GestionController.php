@@ -4,11 +4,10 @@
 // et donc à la gestion côtés Admin des fiches des animaux
 
 
-namespace App\Controller\admin;
+namespace App\Controller;
 
 
-use App\Repository\CategoryRepository;
-use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,18 +29,5 @@ class GestionController extends AbstractController
     }
 
 
-    /**
-     * @Route("/gestion/category")
-     */
-    public function gestionCategory(EntityManagerInterface $manager,CategoryRepository $categoryRepository){
 
-        $categoryFromDb = $categoryRepository->findAll();
-        $category = [];
-        foreach ($categoryFromDb as $item) {
-            $category[$item->getTitle()] = $item->getId();
-        }
-
-        return $this->render( 'gestion/GestionCategory.html.twig');
-
-    }
 }

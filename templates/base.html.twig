@@ -41,12 +41,6 @@
                             Gestion Users
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('gestion_category') }}">
-                            Gestion Categories
-                        </a>
-
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -84,7 +78,7 @@
                 #}
                 {% if app.user is null %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path ('registration') }}">
+                        <a class="nav-link" href="">
                             Inscription
                         </a>
                     </li>
@@ -103,6 +97,12 @@
                            <a class="nav-link" href="{{ path ('user_show')}}">
                                     {{ app.user }}
                            </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path ('search_profile') }}">
+                            Recherche
+                        </a>
                     </li>
 
                     {# Le href du 'log out' peut poser problème,

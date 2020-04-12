@@ -1,151 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}Anim'Alls !{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-              crossorigin="anonymous">
-        {% block stylesheets %}{% endblock %}
+    <title>{% block title %}Anim'Alls !{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-    {# s'il y a un utilisateur connecté et qu'il a le rôle ROLE_ADMIN,
-    donnant accès à la Gestion des Annonces (qui doivent donc donner accès aux animaux, race et espèces)
-    et des Users #}
-    {% if is_granted('ROLE_ADMIN') %}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <span class="navbar-brand">Admin</span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarAdminContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbarAdminContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">
-                            Gestion Annonces
-                            {# et donc des Animaux, Races et Espèces #}
-                        </a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">
-                            Gestion Users
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-    {% endif %}
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+{# s'il y a un utilisateur connecté et qu'il a le rôle ROLE_ADMIN,
+donnant accès à la Gestion des Annonces (qui doivent donc donner accès aux animaux, race et espèces)
+et des Users #}
+{% if is_granted('ROLE_ADMIN') %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="">Anim-Alls</a>
+            <span class="navbar-brand">Admin</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarAdminContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
-            {# affiche le rendu de la méthode menu() de CategoryController #}
-            {# {{ render(controller('App\\Controller\\CategoryController::menu')) }} #}
-
-            <ul class="navbar-nav">
-                {# app.user = l'utilisateur connecté #}
-                {# app.user is null = l'utilisateur n'est pas connecté #}
-
-            {# pour le retour à l'index #}
+        <div class="collapse navbar-collapse" id="navbarAdminContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="">
-                        Accueil
+                        Gestion Annonces
+                        {# et donc des Animaux, Races et Espèces #}
                     </a>
-                </li>
 
-            {# pour contacter l'association #}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">
-                        Contact
+                        Gestion Users
                     </a>
                 </li>
-
-                {# pour les Inscriptions et les Connexion#}
-                {% if app.user is null %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("registration") }}">
-                            Inscription
-                        </a>
-                    </li>
-                    {# Le href du 'log in' peut poser problème,
-                    à déplacer ici pour le moment quand nécessaire :
-                    #}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path ('user_login') }}">
-                            Connexion
-                        </a>
-                    </li>
-                {% else %}
-
-                    <!-- pour les Connexion / Déconnexion, admin ou User -->
-                    <li class="nav-item">
-                           <a class="nav-link" href="{{ path ('user_show')}}">
-                                    {{ app.user }}
-                           </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path ('search_profile') }}">
-                            Recherche
-                        </a>
-                    </li>
-
-                    {# Le href du 'log out' peut poser problème,
-                    à déplacer ici quand nécessaire :
-                    #}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path ('user_logout') }}">
-                            Déconnexion
-                        </a>
-                    </li>
-                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('gestion_category') }}">
+                        Gestion Categories
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
+{% endif %}
 
-    <!-- lourd copier/coller, pour préparer le terrain
-    pour les messages Flash (erreurs, prévention, et autres alertes) -->
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        {# affichage des messages flash #}
-        {% for type, messages in app.session.flashBag.all %}
-            {# pour la classe alert-danger de bootstrap #}
-            {% if type == 'error' %}
-                {% set type = 'danger' %}
+        <a class="navbar-brand" href="">Anim-Alls</a>
+
+        {# affiche le rendu de la méthode menu() de CategoryController #}
+        {# {{ render(controller('App\\Controller\\CategoryController::menu')) }} #}
+
+        <ul class="navbar-nav">
+            {# app.user = l'utilisateur connecté #}
+            {# app.user is null = l'utilisateur n'est pas connecté #}
+
+            {# pour le retour à l'index #}
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    Accueil
+                </a>
+            </li>
+
+            {# pour contacter l'association #}
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    Contact
+                </a>
+            </li>
+
+            {# pour les Inscriptions et les Connexion
+            Le href a été rajouté pour je ne sais quelle raison et fout le boxon,
+            je le déplace ici en attendant de voir : {{ path('registration') }}
+            #}
+            {% if app.user is null %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('registration') }}">
+                        Inscription
+                    </a>
+                </li>
+                {# Le href du 'log in' peut poser problème,
+                à déplacer ici pour le moment quand nécessaire :
+                #}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path ('user_login') }}">
+                        Connexion
+                    </a>
+                </li>
+            {% else %}
+
+                <!-- pour les Connexion / Déconnexion, admin ou User -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path ('user_show') }}">
+                        {{ app.user }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path ('search_profile') }}">
+                        Recherche
+                    </a>
+                </li>
+
+                {# Le href du 'log out' peut poser problème,
+                à déplacer ici quand nécessaire :
+                #}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path ('user_logout') }}">
+                        Déconnexion
+                    </a>
+                </li>
             {% endif %}
-            {% for message in messages %}
-                <div class="alert alert-{{ type }} mt-2">
-                    {{ message|raw }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-
-        {% block body %}{% endblock %}
+        </ul>
     </div>
+</nav>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+<!-- lourd copier/coller, pour préparer le terrain
+pour les messages Flash (erreurs, prévention, et autres alertes) -->
+
+<div class="container">
+    {# affichage des messages flash #}
+    {% for type, messages in app.session.flashBag.all %}
+        {# pour la classe alert-danger de bootstrap #}
+        {% if type == 'error' %}
+            {% set type = 'danger' %}
+        {% endif %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }} mt-2">
+                {{ message|raw }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

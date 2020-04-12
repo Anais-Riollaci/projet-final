@@ -59,17 +59,17 @@ class UserController extends AbstractController
     /**
      * @Route ("/connexion" , name="user_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils){
-
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
         $error = $authenticationUtils->getLastAuthenticationError();
-
+        //var_dump($error); die;
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
         if (!empty($error)) {
             $this->addFlash('error', 'Identifiant ou mot de passe incorrects');
-
         }
+
         return $this->render('user/login.html.twig',
             [
                 'last_username' => $lastUsername

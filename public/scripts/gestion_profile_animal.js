@@ -1,0 +1,1 @@
+$('input[type=file]').on('change',function(){    console.log("toto");    //get the file name    let fileName = $(this).val().split("\\").slice(-1)[0] ;    //replace the "Choose a file" label    $(this).next('.custom-file-label').html(fileName);});

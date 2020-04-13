@@ -5,7 +5,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\InscriptionType;
-use App\Repository\UserRepository;
+use App\Form\ModificationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,28 +16,25 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
-/**********************************INSCRIPTION***************************************/
+    /**********************************INSCRIPTION***************************************/
     /**
      * @Route("/inscription", name="registration")
-     * @Route("/user/{id}/modif", name="user_modif")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function registration(User $user = null, Request $request, EntityManagerInterface $manager,
+    public function registration(Request $request,
+                                 EntityManagerInterface $manager,
                                  UserPasswordEncoderInterface $encoder)
     {
-        if(!$user){
-            $user = new User();
-        }
-
+        $user = new User();
 
         $form = $this->createForm(InscriptionType::class, $user);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
 
@@ -48,28 +45,29 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/inscription.html.twig', [
-            'controller_name' => 'UserAdminController',
+            'controller_name' => 'UserController',
 
             'form' => $form->createView(),
-            'modifUser' => $user->getId() !==null
+
         ]);
     }
 
-/*********************************************CONNEXION*******************************************/
+    /*********************************************CONNEXION*******************************************/
     /**
      * @Route ("/connexion" , name="user_login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
+
         $error = $authenticationUtils->getLastAuthenticationError();
-        //var_dump($error); die;
+
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
         if (!empty($error)) {
             $this->addFlash('error', 'Identifiant ou mot de passe incorrects');
-        }
 
+        }
         return $this->render('user/login.html.twig',
             [
                 'last_username' => $lastUsername
@@ -80,16 +78,43 @@ class UserController extends AbstractController
     /**
      * @Route("/deconnexion", name="user_logout")
      */
-    public function logout(){}
+    public function logout()
+    {
+    }
 
     /**********************************PROFIL UTILISATEUR********************************/
     /**
      * @Route ("/user/profil", name="user_show")
      */
-    public function show(){
+    public function show()
+    {
         $user = $this->getUser();
-        return $this->render('user/show.html.twig',[
+        return $this->render('user/show.html.twig', [
             'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/edit/{id}", name="user_edit")
+     */
+    public function edit(User $user, Request $request, EntityManagerInterface  $manager)
+    {
+
+        $form = $this->createForm(ModificationType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $manager->persist($user);
+            $manager->flush();
+
+
+            return $this->redirectToRoute('user_show');
+        }
+
+        return $this->render('user/modification.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user->getId(),
         ]);
     }
 

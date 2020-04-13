@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{%  form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<h1>Messagerie</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.user, {'label': 'Nom d\'utilisateur:'}) }}
+    {{ form_row(form.animal, {'label': 'Nom de l\'animal:'}) }}
+    {{ form_row(form.content, {'label': 'Message:'}) }}
+    {{ form_row(form.body) }}
+
+    <button type="submit" class="btn btn-success">Envoyer</button>
+    {{ form_end(form) }}
+{% endblock %}

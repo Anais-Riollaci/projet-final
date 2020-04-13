@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{%  form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Modification profil</h1>
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(form.lastName, {'label': 'Nom :'}) }}
+                {{ form_row(form.firstName, {'label': 'Prénom:'}) }}
+                {{ form_row(form.birthDate, {'label': 'Date de naissance:'}) }}
+                {{ form_row(form.phoneNumber,{'label': 'N°téléphone:'}) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.email,{'label': 'Email'}) }}
+                {{ form_row(form.street,{'label': 'Adresse:'}) }}
+                {{ form_row(form.zipCode,{'label': 'Code Postal:'}) }}
+                {{ form_row(form.city,{'label': 'Ville:'}) }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Modifier </button>
+    {{ form_end(form) }}
+
+{% endblock %}

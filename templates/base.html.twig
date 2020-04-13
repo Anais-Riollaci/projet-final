@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -8,7 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('style/style') }}">
+        <link rel="stylesheet" href="{{ asset('style/style.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         {% block stylesheets %}{% endblock %}
 
@@ -16,7 +17,6 @@
 
     <body>
     <div class="container">
-        <div class="nav">
             {% if is_granted('ROLE_ADMIN') %}
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <span class="navbar-brand">Admin</span>
@@ -36,7 +36,8 @@
                     </div>
                 </nav>
             {% endif %}
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="nav">
+            <nav class="navbar navbar-expand{-sm|-md|-lg|-xl} bg-white">
                 <div class="container">
                     <a class="navbar-brand" href="">Anim-Alls</a> {# pour le retour à l'index #}
                         <ul class="navbar-nav">

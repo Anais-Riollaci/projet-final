@@ -1,0 +1,9 @@
+body{ background-color: #222222; color: black; font-size: 10px;}
+
+h1{ font-size: 18px;}
+h2{ font-size: 18px;}
+h3{ font-size: 18px;}
+
+
+
+.navbar .container{flex-wrap: nowrap;display: flex; flex-direction: row;  }

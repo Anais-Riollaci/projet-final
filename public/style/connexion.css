@@ -1,0 +1,39 @@
+div.container{
+    border: 1px solid white;
+    background-color: white;
+    width: 88%;
+    padding-bottom: 242px;
+}
+h1{
+    text-align: center;
+}
+.form-group{
+    width: 80%;
+    margin-left: 40px;
+
+}
+
+/************************************************ECRAN 768PX*******************************************/
+@media screen and (min-width: 768px) {
+    .form-group{
+        width: 60%;
+        margin-left: 130px;
+
+    }
+}
+/************************************************ECRAN 1024PX*******************************************/
+@media screen and (min-width: 1024px) {
+    .form-group{
+        width: 50%;
+        margin-left: 220px;
+
+    }
+}
+/************************************************ECRAN 1600PX*******************************************/
+@media screen and (min-width: 1600px) {
+    .form-group{
+        width: 40%;
+        margin-left: 340px;
+
+    }
+}

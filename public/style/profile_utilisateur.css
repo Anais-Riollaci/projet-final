@@ -1,0 +1,18 @@
+div.container{
+    border: 1px solid white;
+    background-color: white;
+    width: 88%;
+    padding-bottom: 85px;
+}
+/************************************************ECRAN 1024PX*******************************************/
+@media screen and (min-width: 1024px) {
+    div.container{
+        padding-bottom: 47px;
+    }
+}
+/************************************************ECRAN 1600PX*******************************************/
+@media screen and (min-width: 1600px) {
+    div.container{
+        padding-bottom: 40px;
+    }
+}

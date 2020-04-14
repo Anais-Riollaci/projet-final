@@ -41,12 +41,18 @@
         {% endif %}
     </div>
     <div class="nav user-nav">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="">Anim-Alls</a> {# pour le retour à l'index #}
-                <ul class="navbar-nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand" href="{{ path('app_index_index') }}">Anim-Alls</a> {# pour le retour à l'index #}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarUserContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarUserContent">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#a-propos"> A propos de nous</a>
+                    </li>
                     <li class="nav-item">   {# pour contacter l'association #}
-                        <a class="nav-link" href=""> Contact</a>
+                        <a class="nav-link" href="#contact"> Contact</a>
                     </li>
                     <li class="nav-item">   {# pour contacter l'association #}
                         <a class="nav-link" href="{{ path('search_profile') }}"> Recherche</a>

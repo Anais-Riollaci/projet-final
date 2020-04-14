@@ -1,1 +1,27 @@
-.nav {    width: 100%;}.nav .navbar {    width: 100%;}
+body{ background-color: #222222; color: black; font-size: 14px;}
+
+h1{ font-size: 22px;}
+h2{ font-size: 22px;}
+h3{ font-size: 22px;}
+
+.nav{
+    width:100%;
+}
+.navbar{
+    width:100%;
+}
+
+@media screen and (min-width:1024px) {
+
+    body{ font-size: 18px;}
+    h1{ font-size: 26px;}
+    h2{ font-size: 26px;}
+    h3{ font-size: 26px;}
+}
+@media screen and (min-width:1600px) {
+
+    body{ font-size: 22px;}
+    h1{ font-size: 30px;}
+    h2{ font-size: 30px;}
+    h3{ font-size: 30px;}
+}

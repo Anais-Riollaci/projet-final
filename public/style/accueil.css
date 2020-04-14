@@ -119,7 +119,7 @@ div.container{
     a.category-title{
         text-decoration: none;
         color: black;
-        font-size: 15px;
+        font-size: 20px;
     }
 
     /*************A PROPOS DE NOUS**************/
@@ -158,7 +158,9 @@ div.container{
         height: 25em;
         margin:5px 0  50px 15px;
     }
-
+    a.category-title{
+    font-size: 25px;
+    }
     /*************A PROPOS DE NOUS**************/
 
 }
@@ -192,5 +194,9 @@ div.container{
         width: 40em;
         height: 25em;
         margin-left:10px;
+    }
+
+    a.category-title{
+        font-size: 30px;
     }
 }

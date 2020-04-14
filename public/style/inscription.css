@@ -1,0 +1,21 @@
+div.container{
+    border: 1px solid white;
+    background-color: white;
+    width: 88%;
+    padding-bottom: 40px;
+}
+
+.form{
+    margin-top: 40px;
+}
+/************************************************ECRAN 768PX*******************************************/
+@media screen and (min-width:768px){
+    div.container{
+        padding-bottom: 75px;
+    }
+    .form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

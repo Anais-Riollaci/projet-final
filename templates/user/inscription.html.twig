@@ -1,34 +1,40 @@
 {% extends 'base.html.twig' %}
 {%  form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/inscription.css') }}">
+{% endblock %}
+
 {% block titre %} Inscription{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Formulaire d'inscription</h1>
 
         {{ form_start(form) }}
 
-            <div class="row">
-                <div class="col-4">
+            <div class="form">
+                <div class="part1">
                     {{ form_row(form.lastName, {'label': 'Nom :', 'attr':{'placeholder': 'Votre nom'}}) }}
                     {{ form_row(form.firstName, {'label': 'Prénom:', 'attr':{'placeholder': 'Votre prénom'}}) }}
                     {{ form_row(form.birthDate, {'label': 'Date de naissance:', 'attr':{'placeholder': 'JJ/MM/AA'}}) }}
-                    {{ form_row(form.phoneNumber,{'label': 'N°téléphone:', 'attr':{'placeholder': 'Votre n°téléphone'}}) }}
                 </div>
-                <div class="col-4">
+                    <hr>
+                <div class="part2">
+                    {{ form_row(form.phoneNumber,{'label': 'N°téléphone:', 'attr':{'placeholder': 'Votre n°téléphone'}}) }}
                     {{ form_row(form.street,{'label': 'Adresse:', 'attr':{'placeholder': 'Votre adresse'}}) }}
                     {{ form_row(form.zipCode,{'label': 'Code Postal', 'attr':{'placeholder': 'Votre code postal'}}) }}
                     {{ form_row(form.city,{'label': 'Ville', 'attr':{'placeholder': 'Votre ville'}}) }}
                 </div>
-                <div class="col-4">
+                <hr>
+                <div class="part3">
                     {{ form_row(form.email,{'label': 'Email', 'attr':{'placeholder': 'Votre email...'}}) }}
                     {{ form_row(form.password,{'label': 'Mot de passe', 'attr':{'placeholder': 'Votre mot de passe'}}) }}
                     {{ form_row(form.confirm_password,{'label': 'Confirmez votre mot de passe', 'attr':{'placeholder':
                         'Votre mot de passe'}}) }}
-
                 </div>
             </div>
-
     <button type="submit" class="btn btn-success">Inscription</button>
     {{ form_end(form) }}
-
+</div>
 {% endblock %}

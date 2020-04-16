@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<section class="articles" id="comments">
+    {% for comment in comments %}
+        <article>
+            <div class="p-3 mb-2 bg-light text-dark">
+                <h4>Témoignages des adoptions</h4>
+{# ici, il faudra voir pour un nom user_id plutôt que ce titre, dans le style {{ comment.user_id }} #}
+                    <div class="metadata">Ecrit le {{ comment.createAt | date('d/m/Y H:i') }}</div>
+                    <div class="content">
+{# <img src="#" alt="#"> #}
+                        {{ comment.content | raw }}
+                        <br>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet, aperiam consequuntur, corporis dolore
+                            fuga fugit id illo libero magni minus mollitia, nam optio recusandae repellat sapiente sed sunt tempore
+                            tenetur veniam voluptas voluptatem voluptatibus. A animi asperiores beatae dicta, dolores doloribus fuga
+                            quo quos suscipit, tenetur velit vero voluptatem!</p>
+                    </div>
+
+            </div>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock %}
+

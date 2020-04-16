@@ -64,6 +64,8 @@ class UserController extends AbstractController
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        dump($error);
+
         if (!empty($error)) {
             $this->addFlash('error', 'Identifiant ou mot de passe incorrects');
 

@@ -75,6 +75,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path ('user_show') }}"> {{ app.user }}</a>
                         </li>
+
+                        <!-- pour déposer un Témoignage d'adoption, accessible seulement aux Admin et User -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path ('comments_create') }}">Témoignage</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path ('user_logout') }}">Déconnexion</a>
                         </li>

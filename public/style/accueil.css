@@ -13,6 +13,15 @@ div.container{
         background-color: white;
         margin:20px 0 30px -70px;
     }
+span.dark{
+    color:#8B0000;
+}
+ span.orange{
+    color:#FF8C00;
+}
+ span.red{
+     color:#FF0000;
+ }
     button { margin-top: 10px; }
 
     /*****************CARROUSEL*****************/
@@ -55,8 +64,14 @@ div.container{
     /*************ARTICLE*************/
     section.articles{
         font-size: 10px;
-        margin-bottom: -40px;
     }
+    div.article{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        box-shadow: 0px 0px 15px #C0C0C0,
+        0px 0px 30px #FDF5E6;
+    }
+
     img.img{
         width:4em;
         height:6em;
@@ -69,9 +84,6 @@ div.container{
 
 
     /*************CONTACT*************/
-div.map{
-
-}
     div.reseau {
         font-size: 35px;
         display: flex;

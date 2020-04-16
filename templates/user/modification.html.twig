@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
-
 {%  form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/inscription.css') }}">
 {% endblock %}
-
 {% block body %}
 <div class="container">
     {{ form_start(form) }}
@@ -23,7 +23,9 @@
                 {{ form_row(form.city,{'label': 'Ville:'}) }}
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Enregistrer les modifications </button>
+        <div class="col text-center">
+            <button type="submit" class="btn btn-success">Enregistrer les modifications </button>
+        </div>
     {{ form_end(form) }}
 </div>
 {% endblock %}

@@ -95,10 +95,11 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="user_edit")
+     * @Route("/edit")
      */
-    public function edit(User $user, Request $request, EntityManagerInterface  $manager)
+    public function edit( Request $request, EntityManagerInterface  $manager)
     {
+        $user= $this->getUser();
 
         $form = $this->createForm(ModificationType::class, $user);
         $form->handleRequest($request);

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserAdminController extends AbstractController
 {
     /**
-     * @Route("/user")
+     * @Route("/gestion/user")
      */
     public function show( EntityManagerInterface $manager, UserRepository $repository)
     {
@@ -22,5 +22,19 @@ class UserAdminController extends AbstractController
         return $this->render('admin/user.html.twig', [
             'user' => $users
         ]);
+    }
+
+    /**
+     * @Route("/suppression/{id}")
+     */
+    public function delete( EntityManagerInterface $manager, User $user)
+    {
+        $manager->remove($user);
+        $manager->flush();
+
+        $this->addFlash('success', 'Cette utitlisateur est supprimé');
+
+        return $this->redirectToRoute('app_admin_useradmin_show');
+
     }
 }

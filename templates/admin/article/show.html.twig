@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('style/gestion_user.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/gestion_article.css') }}">
 {% endblock %}
 {% block body %}
     <div class="container">
@@ -32,9 +32,10 @@
                 {% endfor %}
             </tr>
         </table>
-
-        <a href="{{ path('app_admin_article_create') }}">
-            <button type="submit" class="btn btn-warning">Créer un nouvelle article</button>
-        </a>
+        <div class="col text-center">
+            <a href="{{ path('app_admin_article_create') }}">
+                <button type="submit" class="btn btn-primary">Créer un nouvel article</button>
+            </a>
+        </div>
     </div>
 {% endblock %}

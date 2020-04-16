@@ -131,7 +131,7 @@ div.container{
     img.img{
         width:8em;
         height:10em;
-        margin-bottom: 20px;
+        margin-bottom: -20px;
     }
     p.date{
         margin-top: -20px;

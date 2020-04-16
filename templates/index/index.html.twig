@@ -125,15 +125,17 @@
             <h2>Les dérnières news</h2>
             {% for article in articles %}
             <div class="article">
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body">
-                            <p class="title"><strong>{{article.title}}</strong></p>
-                            <p class="date"><small class="text-muted">{{ article.createdAt | date('d/m/Y')}}</small></p>
-                            <p class="content">{{ article.content }}</p>
+                <div class="card mb-3" >
+                    <div class="row no-gutters">
+                        <div class="col-md-3">
+                            <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <p class="title"><strong>{{article.title}}</strong></p>
+                                <p class="date"><small class="text-muted">{{ article.createdAt | date('d/m/Y')}}</small></p>
+                                <p class="content">{{ article.content }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

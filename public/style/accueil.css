@@ -13,6 +13,15 @@ div.container{
         background-color: white;
         margin:20px 0 30px -70px;
     }
+span.dark{
+    color:#8B0000;
+}
+ span.orange{
+    color:#FF8C00;
+}
+ span.red{
+     color:#FF0000;
+ }
     button { margin-top: 10px; }
 
     /*****************CARROUSEL*****************/
@@ -47,45 +56,34 @@ div.container{
     }
 
     img.img-accueil {
-        width: 15em;
-        height: 10em;
-        margin-left: 50px;
-        margin-right: 10px;
+        width: 20em;
+        height: 15em;
+        margin-right: 30px;
     }
 
     /*************ARTICLE*************/
-    div.article{
+    section.articles{
         font-size: 10px;
-        box-shadow: 0px 0px 50px #DCDCDC,
-        0px 0px 30px #FFFFF0;
     }
+    div.article{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        box-shadow: 0px 0px 15px #C0C0C0,
+        0px 0px 30px #FDF5E6;
+    }
+
     img.img{
-        width:6em;
-        height:8em;
-        margin-top: 10px;
-        margin-bottom: -15px;
+        width:4em;
+        height:6em;
+        margin-bottom: -20px;
     }
     p.date{
-        margin-top: -15px;
-        margin-bottom: 0px;
+        margin-top: -20px;
+        margin-bottom: -5px;
     }
-    p.content{ margin-bottom: -10px;}
 
 
     /*************CONTACT*************/
-   .map-responsive {
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        position: relative;
-        > height: 0;
-    }
-    .map-responsive iframe {
-        left: 0;
-        top: 0;
-        height: 50%;
-        width: 100%;
-        position: absolute;
-    }
     div.reseau {
         font-size: 35px;
         display: flex;
@@ -128,18 +126,18 @@ div.container{
         font-size: 20px;
     }
     /*************ARTICLE*************/
-    section.articles{ font-size: 14px; }
+    section.articles{
+        font-size: 12px;
+        margin-bottom: -15px;
+    }
     img.img{
         width:8em;
         height:10em;
+        margin-bottom: -20px;
     }
-    p.content{ margin-bottom: 10px;}
-
-    /*************A PROPOS DE NOUS**************/
-    img.img-accueil {
-        width: 20em;
-        height: 15em;
-        margin-left: 0px;
+    p.date{
+        margin-top: -20px;
+        margin-bottom: -5px;
     }
 }
 /************************************************ECRAN 1024PX*******************************************/
@@ -175,10 +173,6 @@ div.container{
     a.category-title{
     font-size: 25px;
     }
-
-    /*************ARTICLE*************/
-    div.article{ font-size: 16px;}
-    img.img{ margin-bottom: 10px;}
 }
 
 /***********************************************ECRAN 1240PX******************************************/
@@ -219,25 +213,25 @@ div.container{
     div.carrousel {
         width: 40em;
         height: 25em;
-        margin-left:30px;
+        margin-left:10px;
     }
 
     .carousel-inner {
         width: 40em;
         height: 25em;
-        margin-left:30px;
+        margin-left:10px;
     }
 
     .carousel-item {
         width: 40em;
         height: 25em;
-        margin-left:30px;
+        margin-left:10px;
     }
 
     .carousel-item img {
         width: 40em;
         height: 25em;
-        margin-left:30px;
+        margin-left:10px;
     }
 
     a.category-title{

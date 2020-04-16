@@ -8,7 +8,6 @@
 {% block body %}
     <h1>Création article</h1>
     {{ form_start(form) }}
-    {{ form_row(form.createdAt, {'label': 'Date de création:', 'attr':{'placeholder': 'JJ/MM/AA'}})}}
     {{ form_row(form.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(form.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
     {{ form_row(form.picture, {'attr': {'placeholder': "Image de l'article"}}) }}

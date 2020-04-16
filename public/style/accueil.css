@@ -5,7 +5,6 @@ div.container{
     background-color: white;
     width: 88%;
 }
-
     div.banniere img {
         width: 145%;
         border: 1px solid black;
@@ -14,10 +13,7 @@ div.container{
         background-color: white;
         margin:20px 0 30px -70px;
     }
-
-    button {
-        margin-top: 10px;
-    }
+    button { margin-top: 10px; }
 
     /*****************CARROUSEL*****************/
     div.carrousel {
@@ -25,33 +21,28 @@ div.container{
         height:15em;
         margin:10px 0 50px -5px;
     }
-
     .carousel-inner {
         width: 25em;
         height:15em;
         margin:10px 0 50px -5px;
     }
-
     .carousel-item {
         width: 25em;
         height:15em;
         margin:10px 0 50px -5px;
     }
-
     .carousel-item img {
         width: 25em;
         height:15em;
         margin:10px 0 50px -5px;
     }
-
     a.category-title {
         text-decoration: none;
         color: black;
         font-size: 15px;
     }
-
     /*************A PROPOS DE NOUS**************/
-    article.a-propos {
+    section.a-propos {
         margin: 50px 0 50px 0;
     }
 
@@ -61,31 +52,42 @@ div.container{
         margin-right: 30px;
     }
 
-    /*************CONTACT*************/
+    /*************ARTICLE*************/
+    section.articles{
+        font-size: 10px;
+        margin-bottom: -40px;
+    }
+    img.img{
+        width:4em;
+        height:6em;
+        margin-bottom: -20px;
+    }
+    p.date{
+        margin-top: -20px;
+        margin-bottom: -5px;
+    }
 
-    .map-responsive {
-        border: 1px solid red;
+
+    /*************CONTACT*************/
+   .map-responsive {
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
-    > height: 0;
+        > height: 0;
     }
-
     .map-responsive iframe {
         left: 0;
         top: 0;
-        height: 100%;
+        height: 50%;
         width: 100%;
         position: absolute;
     }
-
     div.reseau {
         font-size: 35px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-
 
 /************************************************ECRAN 768PX*******************************************/
 @media screen and (min-width: 768px) {
@@ -121,12 +123,20 @@ div.container{
         color: black;
         font-size: 20px;
     }
-
-    /*************A PROPOS DE NOUS**************/
-
-
-    /*************CONTACT*************/
-
+    /*************ARTICLE*************/
+    section.articles{
+        font-size: 12px;
+        margin-bottom: -15px;
+    }
+    img.img{
+        width:8em;
+        height:10em;
+        margin-bottom: -20px;
+    }
+    p.date{
+        margin-top: -20px;
+        margin-bottom: -5px;
+    }
 }
 /************************************************ECRAN 1024PX*******************************************/
 @media screen and (min-width:1024px){
@@ -140,29 +150,55 @@ div.container{
     div.carrousel {
         width: 35em;
         height: 25em;
-        margin:5px 0  50px 15px;
+        margin-left:15px;
     }
     .carousel-inner{
         width: 35em;
         height: 25em;
-        margin:5px 0  50px 15px;
+        margin-left:15px;
 
     }
     .carousel-item {
         width: 35em;
         height: 25em;
-        margin: 5px 0  50px 15px;
+        margin-left:15px;
     }
     .carousel-item  img{
         width: 35em;
         height: 25em;
-        margin:5px 0  50px 15px;
+        margin-left:15px;
     }
     a.category-title{
     font-size: 25px;
     }
-    /*************A PROPOS DE NOUS**************/
+}
 
+/***********************************************ECRAN 1240PX******************************************/
+@media screen and (min-width:1240px) {
+    div.banniere img {
+        margin-left: -135px;
+    }
+    div.carrousel {
+        width: 40em;
+        height: 25em;
+        margin-left:30px;
+    }
+    .carousel-inner{
+        width: 40em;
+        height: 25em;
+        margin-left:30px;
+
+    }
+    .carousel-item {
+        width: 40em;
+        height: 25em;
+        margin-left:30px;
+    }
+    .carousel-item  img{
+        width: 40em;
+        height: 25em;
+        margin-left:30px;
+    }
 }
 /***********************************************ECRAN 1600PX******************************************/
 @media screen and (min-width:1600px) {

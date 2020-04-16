@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{%  form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <h1>Création article</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.createdAt, {'label': 'Date de création:', 'attr':{'placeholder': 'JJ/MM/AA'}})}}
+    {{ form_row(form.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
+    {{ form_row(form.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
+    {{ form_row(form.picture, {'attr': {'placeholder': "Image de l'article"}}) }}
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

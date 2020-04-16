@@ -69,19 +69,9 @@ div.container{
 
 
     /*************CONTACT*************/
-   .map-responsive {
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        position: relative;
-        > height: 0;
-    }
-    .map-responsive iframe {
-        left: 0;
-        top: 0;
-        height: 50%;
-        width: 100%;
-        position: absolute;
-    }
+div.map{
+
+}
     div.reseau {
         font-size: 35px;
         display: flex;

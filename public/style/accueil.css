@@ -6,7 +6,7 @@ div.container{
     width: 88%;
 }
     div.banniere img {
-        width: 145%;
+        width: 100vw;
         border: 1px solid black;
         box-shadow: 0px 0px 5px #000,
         0px 0px 30px #777;
@@ -26,9 +26,14 @@ span.dark{
 
     /*****************CARROUSEL*****************/
     div.carrousel {
+        align-items: center;
         width: 25em;
         height:15em;
-        margin:10px 0 50px -5px;
+    }
+
+    .carousel slide{
+        width: auto;
+        height: auto;
     }
     .carousel-inner {
         width: 25em;

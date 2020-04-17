@@ -25,36 +25,36 @@ span.dark{
     button { margin-top: 10px; }
 
     /*****************CARROUSEL*****************/
-    div.carrousel {
-        align-items: center;
-        width: 25em;
-        height:15em;
-    }
+    /*div.carrousel {*/
+    /*    align-items: center;*/
+    /*    width: 25em;*/
+    /*    height:15em;*/
+    /*}*/
 
-    .carousel slide{
-        width: auto;
-        height: auto;
-    }
-    .carousel-inner {
-        width: 25em;
-        height:15em;
-        margin:10px 0 50px -5px;
-    }
-    .carousel-item {
-        width: 25em;
-        height:15em;
-        margin:10px 0 50px -5px;
-    }
-    .carousel-item img {
-        width: 25em;
-        height:15em;
-        margin:10px 0 50px -5px;
-    }
-    a.category-title {
-        text-decoration: none;
-        color: white;
-        font-size: 15px;
-    }
+    /*.carousel slide{*/
+    /*    width: auto;*/
+    /*    height: auto;*/
+    /*}*/
+    /*.carousel-inner {*/
+    /*    width: 25em;*/
+    /*    height:15em;*/
+    /*    margin:10px 0 50px -5px;*/
+    /*}*/
+    /*.carousel-item {*/
+    /*    width: 25em;*/
+    /*    height:15em;*/
+    /*    margin:10px 0 50px -5px;*/
+    /*}*/
+    /*.carousel-item img {*/
+    /*    width: 25em;*/
+    /*    height:15em;*/
+    /*    margin:10px 0 50px -5px;*/
+    /*}*/
+    /*a.category-title {*/
+    /*    text-decoration: none;*/
+    /*    color: white;*/
+    /*    font-size: 15px;*/
+    /*}*/
     /*************A PROPOS DE NOUS**************/
     section.a-propos {
         margin: 50px 0 50px 0;
@@ -103,33 +103,33 @@ span.dark{
         margin-left: -95px;
     }
     /*****************CARROUSEL*****************/
-    div.carrousel{
-        width: 40em;
-        height: 25em;
-        margin:5px 0  50px -5px;
-    }
-    .carousel-inner{
-        width: 40em;
-        height: 25em;
-        margin:5px 0  50px -5px;
+    /*div.carrousel{*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin:5px 0  50px -5px;*/
+    /*}*/
+    /*.carousel-inner{*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin:5px 0  50px -5px;*/
 
-    }
-    .carousel-item {
-        width: 40em;
-        height: 25em;
-        margin:5px 0  50px -5px;
-    }
-    .carousel-item  img{
-        width: 40em;
-        height: 25em;
-        margin:5px 0  50px -5px;
-    }
+    /*}*/
+    /*.carousel-item {*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin:5px 0  50px -5px;*/
+    /*}*/
+    /*.carousel-item  img{*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin:5px 0  50px -5px;*/
+    /*}*/
 
-    a.category-title{
-        text-decoration: none;
-        color: black;
-        font-size: 20px;
-    }
+    /*a.category-title{*/
+    /*    text-decoration: none;*/
+    /*    color: black;*/
+    /*    font-size: 20px;*/
+    /*}*/
     /*************ARTICLE*************/
     section.articles{
         font-size: 12px;
@@ -154,58 +154,58 @@ span.dark{
     }
 
     /*****************CARROUSEL*****************/
-    div.carrousel {
-        width: 35em;
-        height: 25em;
-        margin-left:15px;
-    }
-    .carousel-inner{
-        width: 35em;
-        height: 25em;
-        margin-left:15px;
+/*    div.carrousel {*/
+/*        width: 35em;*/
+/*        height: 25em;*/
+/*        margin-left:15px;*/
+/*    }*/
+/*    .carousel-inner{*/
+/*        width: 35em;*/
+/*        height: 25em;*/
+/*        margin-left:15px;*/
 
-    }
-    .carousel-item {
-        width: 35em;
-        height: 25em;
-        margin-left:15px;
-    }
-    .carousel-item  img{
-        width: 35em;
-        height: 25em;
-        margin-left:15px;
-    }
-    a.category-title{
-    font-size: 25px;
-    }
-}
+/*    }*/
+/*    .carousel-item {*/
+/*        width: 35em;*/
+/*        height: 25em;*/
+/*        margin-left:15px;*/
+/*    }*/
+/*    .carousel-item  img{*/
+/*        width: 35em;*/
+/*        height: 25em;*/
+/*        margin-left:15px;*/
+/*    }*/
+/*    a.category-title{*/
+/*    font-size: 25px;*/
+/*    }*/
+/*}*/
 
 /***********************************************ECRAN 1240PX******************************************/
 @media screen and (min-width:1240px) {
     div.banniere img {
         margin-left: -135px;
     }
-    div.carrousel {
-        width: 40em;
-        height: 25em;
-        margin-left:30px;
-    }
-    .carousel-inner{
-        width: 40em;
-        height: 25em;
-        margin-left:30px;
+    /*div.carrousel {*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin-left:30px;*/
+    /*}*/
+    /*.carousel-inner{*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin-left:30px;*/
 
-    }
-    .carousel-item {
-        width: 40em;
-        height: 25em;
-        margin-left:30px;
-    }
-    .carousel-item  img{
-        width: 40em;
-        height: 25em;
-        margin-left:30px;
-    }
+    /*}*/
+    /*.carousel-item {*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin-left:30px;*/
+    /*}*/
+    /*.carousel-item  img{*/
+    /*    width: 40em;*/
+    /*    height: 25em;*/
+    /*    margin-left:30px;*/
+    /*}*/
 }
 /***********************************************ECRAN 1600PX******************************************/
 @media screen and (min-width:1600px) {
@@ -215,31 +215,31 @@ span.dark{
     }
 
     /*****************CARROUSEL*****************/
-    div.carrousel {
-        width: 40em;
-        height: 25em;
-        margin-left:10px;
-    }
+/*    div.carrousel {*/
+/*        width: 40em;*/
+/*        height: 25em;*/
+/*        margin-left:10px;*/
+/*    }*/
 
-    .carousel-inner {
-        width: 40em;
-        height: 25em;
-        margin-left:10px;
-    }
+/*    .carousel-inner {*/
+/*        width: 40em;*/
+/*        height: 25em;*/
+/*        margin-left:10px;*/
+/*    }*/
 
-    .carousel-item {
-        width: 40em;
-        height: 25em;
-        margin-left:10px;
-    }
+/*    .carousel-item {*/
+/*        width: 40em;*/
+/*        height: 25em;*/
+/*        margin-left:10px;*/
+/*    }*/
 
-    .carousel-item img {
-        width: 40em;
-        height: 25em;
-        margin-left:10px;
-    }
+/*    .carousel-item img {*/
+/*        width: 40em;*/
+/*        height: 25em;*/
+/*        margin-left:10px;*/
+/*    }*/
 
-    a.category-title{
-        font-size: 30px;
-    }
-}
+/*    a.category-title{*/
+/*        font-size: 30px;*/
+/*    }*/
+/*}*/

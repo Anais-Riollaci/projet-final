@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Form\CommentsType;
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,8 +24,10 @@ class IndexController extends AbstractController
     /**
      * @Route("/")
      */
-    public function index(ArticleRepository $repository)
+    public function index(CategoryRepository $categoryRepository, ArticleRepository $repository)
     {
+        $categories = $categoryRepository->findAll();
+
         $articles = $repository->findBy(
             [],
             ['createdAt' => 'DESC'],
@@ -39,20 +42,23 @@ class IndexController extends AbstractController
             'index/index.html.twig',
             [
                 'articles' => $articles,
+                'categories' => $categories,
                 $content = $repo->findAll()
             ]
         );
     }
 
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/message/new", name="comments_create")
      */
-    public function create(){
+    public function create()
+    {
 
         $comment = new Comments();
 
-       $form = $this->createForm(CommentsType::class, $comment);
+        $form = $this->createForm(CommentsType::class, $comment);
 
         return $this->render('message/create.html.twig', [
             'formComment' => $form->createView()
@@ -69,7 +75,8 @@ class IndexController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/message/", name="comments_show")
      */
-    public function show(){
+    public function show()
+    {
         $repo = $this->getDoctrine()->getRepository(Comments::class);
 
         $comment = $repo->findAll();
@@ -79,4 +86,5 @@ class IndexController extends AbstractController
             ]
         );
     }
+
 }

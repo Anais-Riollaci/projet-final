@@ -67,6 +67,7 @@ class IndexController extends AbstractController
 
 
 
+
 // un rajout du Mercredi 15 Avril
 // pour placer les commentaires de témoignages, je mets de côté la section messages pour le moment
 // message.html.twig

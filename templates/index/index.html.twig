@@ -25,7 +25,7 @@
                 <h2> Nos amis à adopter <i class="fas fa-paw"></i></h2>
 
 
-                <div class="carrousel col-md-8 col-xs-5">
+                <div class="carrousel col-md-12 col-xs-5">
 
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -41,7 +41,7 @@
                                          class="d-block w-100"
                                          alt="...">
                                     <div class="carousel-caption">
-                                        <a class="category-title" href=""><strong>{{ category.title }}</strong></a>
+                                        <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}"><strong>{{ category.title }}</strong></a>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -59,8 +59,8 @@
                     </div>
                 </div>
 
-                <a href="{{ path('search_profile')  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                <a href="{{ path('search_profile', {"form[types]": 1})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
+                <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
                 </button>
 
             </section>
@@ -79,7 +79,7 @@
                         Voulez-vous nous aider ? Comme expliqué plus haut, il s'agit de bénévolat.
                         Une donation nous permet d'améliorer nos moyens et méthodes.
                     </p>
-                    <img src="{{ asset('img/accueil/img-accueil.jpg') }}" align="left" class=" col-sm-4 img-accueil"
+                    <img src="{{ asset('img/accueil/img-accueil.jpg') }}" align="left" class=" col-xs-4 img-accueil"
                          alt="">
                     <p>
                         Comme vous vous en doutez en ayant lu en diagonal, nous sommes une association d'aide à
@@ -112,7 +112,7 @@
                     <div class="article">
                         <div class="card mb-3">
                             <div class="row no-gutters">
-                                <div class="col-md-3">
+                                <div class="col-xs-4">
                                     <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
                                 </div>
                                 <div class="col-md-9">
@@ -137,7 +137,7 @@
                     <p>01.33.55.88.22</p>
                     <p>2 Rue de la Liberté, 94300 Vincennes</p>
                 </div>
-                <div class="map col-sm-6">
+                <div class="map  col-xs-5">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4661567402204!2d2.436814850539275!
                 3d48.849320679184906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e672a1564aeef5%3A0xe1079c77ded7703
                 7!2s2-18%20Rue%20de%20la%20Libert%C3%A9%2C%2094300%20Vincennes!5e0!3m2!1sfr!2sfr!4v1586716947372!5m2!1sfr!2sfr"
@@ -161,7 +161,7 @@
                                 exercitationem quae quaerat?</p>
                             <p>Accusantium autem distinctio, dolorum et facilis iusto, molestiae non, pariatur
                                 praesentium quod reiciendis sapiente veniam.</p>
-                            <a href="{{ path('comments_show') }}" class="btn btn-primary">Se rendre sur le tableau des
+                            <a href="{{ path('comments_show') }}" class=" btn btn-dark">Se rendre sur le tableau des
                                 témoignages</a></div>
                     </article>
 

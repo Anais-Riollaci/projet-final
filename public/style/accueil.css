@@ -72,11 +72,9 @@ section.a-propos {
     margin: 50px 0 50px 0;
 }
 
-/*img.img-accueil {*/
-/*    width: auto;*/
-/*    height: auto;*/
-/*    margin-right: 30px;*/
-/*}*/
+img.img-accueil {
+    width: 100%;
+}
 
 /*************ARTICLE*************/
 section.articles {
@@ -91,8 +89,7 @@ div.article {
 }
 
 img.img {
-    width: auto;
-    height: auto;
+    width: 100%;
 }
 
 p.date {
@@ -160,11 +157,6 @@ div.map {
         margin-bottom: -15px;
     }
 
-    img.img {
-        width: auto;
-        height: auto;
-    }
-
     p.date {
         margin-top: -20px;
         margin-bottom: -5px;
@@ -203,7 +195,7 @@ div.map {
     /*    a.category-title{*/
     /*    font-size: 25px;*/
     /*    }*/
-    /*}*/
+    }
     /***********************************************ECRAN 1240PX******************************************/
     @media screen and (min-width: 1240px) {
         div.banniere img {
@@ -237,6 +229,7 @@ div.map {
             width: 135%;
             margin-left: -160px;
         }
+    }
 
 /*****************CARROUSEL*****************/
 /*    div.carrousel {*/

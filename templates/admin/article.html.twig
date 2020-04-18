@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/gestion_article.css') }}">
 {% endblock %}
+
 {% block body %}
     <div class="container">
         <table class="table">
@@ -32,10 +34,32 @@
                 {% endfor %}
             </tr>
         </table>
-        <div class="col text-center">
-            <a href="{{ path('app_admin_article_create') }}">
                 <button type="submit" class="btn btn-primary">Créer un nouvel article</button>
-            </a>
-        </div>
+
+                {{ form_start(form)}}
+
+                {{ form_row(form.title, {'label': 'Titre:', 'attr': {'placeholder': "Titre de l'article"}}) }}
+                {{ form_row(form.content, {'label': 'Article:', 'attr': {'placeholder': "Contenue de l'article"}}) }}
+                {{ form_row(form.picture, {'label': 'Image:', 'attr': {'placeholder': "Image de l'article"}}) }}
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+
+                {{ form_end(form)}}
+
     </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

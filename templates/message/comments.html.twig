@@ -2,28 +2,63 @@
 
 
 {% block body %}
+    <h1>Voici les différents avis sur l'adoption d'un nouveau compagnon</h1>
 
-<section class="articles" id="comments">
-    {% for comment in comments %}
-        <article>
-            <div class="p-3 mb-2 bg-light text-dark">
-                <h4>Témoignages des adoptions</h4>
-{# ici, il faudra voir pour un nom user_id plutôt que ce titre, dans le style {{ comment.user_id }} #}
-                    <div class="metadata">Ecrit le {{ comment.createAt | date('d/m/Y H:i') }}</div>
-                    <div class="content">
-{# <img src="#" alt="#"> #}
-                        {{ comment.content | raw }}
-                        <br>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet, aperiam consequuntur, corporis dolore
-                            fuga fugit id illo libero magni minus mollitia, nam optio recusandae repellat sapiente sed sunt tempore
-                            tenetur veniam voluptas voluptatem voluptatibus. A animi asperiores beatae dicta, dolores doloribus fuga
-                            quo quos suscipit, tenetur velit vero voluptatem!</p>
-                    </div>
 
-            </div>
-        </article>
-    {% endfor %}
-</section>
+        {{ form_start(form) }}
+
+        {{ form_row(form.user) }}
+
+        {# à voir pour plus tard
+        Au sujet de son nouveau compagnon animal : {{ form_row(form.animal) }} #}
+
+        {{ form_row(form.content) }}
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">
+                Envoyer
+            </button>
+        </div>
+
+        {{ form_end(form) }}
+
+    {# montrer les avis déjà existant
+    pour plus tard, en js, au cloc montrer tout les avis, à copier / adapter dans profils animal
+    #}
+
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Date de création</th>
+                <th>Contenu</th>
+            </tr>
+            <tr>
+                {% for comments in comment %}
+                <td>{{ comments.id }}</td>
+                <td>{{ comments.user }}</td>
+                <td>{{ comments.createdAt | date('d/m/Y')}}</td>
+                <td>{{ comments.content }}</td>
+
+                {#
+                à voir sur le code d'anais
+                <td style="text-align: right;">
+                    <a href="{{ path('', {'id': articles.id}) }}">
+                        <button type="submit" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                    </a>
+                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </a>
+                </td>
+                #}
+            <tr>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+
 
 {% endblock %}
 

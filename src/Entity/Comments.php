@@ -37,7 +37,7 @@ class Comments
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="comments")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $animal;
+//    private $animal;
 
     public function getId(): ?int
     {
@@ -80,15 +80,10 @@ class Comments
         return $this;
     }
 
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
+//    public function getAnimal(): ?Animal
+//    {          return $this->animal;      }
 
-    public function setAnimal(?Animal $animal): self
-    {
-        $this->animal = $animal;
+//    public function setAnimal(?Animal $animal): self
+//    {        $this->animal = $animal;         return $this;     }
 
-        return $this;
-    }
 }

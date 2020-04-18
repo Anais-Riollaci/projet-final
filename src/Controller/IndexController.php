@@ -34,6 +34,12 @@ class IndexController extends AbstractController
             5
         );
 
+        $comments = $repository->findBy(
+            [],
+            ['createdAt' => 'DESC'],
+            3
+        );
+
         $repo = $this->getDoctrine()->getRepository(Comments::class);
 
         $content = $repo->findAll();
@@ -43,6 +49,7 @@ class IndexController extends AbstractController
             [
                 'articles' => $articles,
                 'categories' => $categories,
+                'comments' => $comments,
                 $content = $repo->findAll()
             ]
         );
@@ -60,7 +67,7 @@ class IndexController extends AbstractController
 
         $form = $this->createForm(CommentsType::class, $comment);
 
-        return $this->render('message/create.html.twig', [
+        return $this->render('edit.html.twig', [
             'formComment' => $form->createView()
         ]);
     }

@@ -40,7 +40,13 @@
                                          class="d-block w-100"
                                          alt="...">
                                     <div class="carousel-caption">
-                                        <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}"><strong>{{ category.title }}</strong></a>
+                                        {% if app.user is null %}
+                                            <a class="category-title" href="{{ path('user_login') }}"><strong>{{ category.title }}
+                                                </strong></a>
+                                        {% else %}
+                                            <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
+                                                <strong>{{ category.title }}</strong></a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}
@@ -57,9 +63,13 @@
                         </a>
                     </div>
                 </div>
-
-                <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% if app.user is null %}
+                    <a href="{{ path('user_login') }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
+                    <a href="{{ path('user_login') }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% else %}
+                    <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
+                    <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% endif %}
                 </button>
 
             </section>

@@ -4,6 +4,8 @@ section {
 
 .facebook, .twitter, .linkedin {
     color: #E6804C;
+    font-size: 30px;
+    margin: 10px 10px 40px 10px;
 }
 
 div.container {
@@ -65,6 +67,7 @@ a.category-title{
 }
 /*************A PROPOS DE NOUS**************/
 section.a-propos {
+    text-align: left;
     margin: 50px 0 50px 0;
 }
 
@@ -88,19 +91,16 @@ div.article {
 
 img.img {
     width: 10em;
-    height:12em ;
-
+    height:13em ;
 }
 p.date { margin-top: -10px; }
 
 /*************CONTACT*************/
-div.reseau {
-    font-size: 35px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
+ div.infos{
+     text-decoration: none;
+     color: black;
+ }
 div.map {
     margin: auto;
 }
@@ -121,41 +121,49 @@ div.map {
     }
 
     /*****************CARROUSEL*****************/
-    /*div.carrousel{*/
-    /*    width: 40em;*/
-    /*    height: 25em;*/
-    /*    margin:5px 0  50px -5px;*/
-    /*}*/
-    /*.carousel-inner{*/
-    /*    width: 40em;*/
-    /*    height: 25em;*/
-    /*    margin:5px 0  50px -5px;*/
-    /*}*/
-    /*.carousel-item {*/
-    /*    width: 40em;*/
-    /*    height: 25em;*/
-    /*    margin:5px 0  50px -5px;*/
-    /*}*/
-    /*.carousel-item  img{*/
-    /*    width: 40em;*/
-    /*    height: 25em;*/
-    /*    margin:5px 0  50px -5px;*/
-    /*}*/
-    /*a.category-title{*/
-    /*    text-decoration: none;*/
-    /*    color: black;*/
-    /*    font-size: 20px;*/
-    /*}*/
-    /*************ARTICLE*************/
-    section.articles {
-        font-size: 12px;
-        margin-bottom: -15px;
+    div.carrousel{
+       width: 40em;
+       height: 25em;
+       margin-left: -10px;
+    }
+    .carousel-inner{
+        width: 40em;
+        height: 25em;
+        margin-left: -10px;
+    }
+    .carousel-item {
+        width: 40em;
+        height: 25em;
+        margin-left: -10px;
+    }
+    .carousel-item  img{
+        width: 40em;
+        height: 25em;
+        margin-left: -10px;
     }
 
+    /*************A PROPOS DE NOUS**************/
+    section.a-propos {
+        margin: 50px 0 50px 0;
+    }
+
+    img.img-accueil {
+        width: 20em;
+        height: 16em;
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+
+
+    /*************ARTICLE*************/
+    section.articles {
+        text-align: left;
+        font-size: 12px;
+    }
     p.date {
         margin-top: -20px;
-        margin-bottom: -5px;
     }
+
 }
 
 /************************************************ECRAN 1024PX*******************************************/
@@ -165,31 +173,20 @@ div.map {
         width: 130%;
         margin-left: -108px;
     }
-
     /*****************CARROUSEL*****************/
-    /*    div.carrousel {*/
-    /*        width: 35em;*/
-    /*        height: 25em;*/
-    /*        margin-left:15px;*/
-    /*    }*/
-    /*    .carousel-inner{*/
-    /*        width: 35em;*/
-    /*        height: 25em;*/
-    /*        margin-left:15px;*/
-    /*    }*/
-    /*    .carousel-item {*/
-    /*        width: 35em;*/
-    /*        height: 25em;*/
-    /*        margin-left:15px;*/
-    /*    }*/
-    /*    .carousel-item  img{*/
-    /*        width: 35em;*/
-    /*        height: 25em;*/
-    /*        margin-left:15px;*/
-    /*    }*/
-    /*    a.category-title{*/
-    /*    font-size: 25px;*/
-    /*    }*/
+    div.carrousel { margin-left: -5px; }
+    .carousel-inner { margin-left: -5px; }
+    .carousel-item { margin-left: -5px; }
+    .carousel-item  img { margin-left: -5px; }
+
+    /*************ARTICLE*************/
+    section.articles {font-size: 14px; }
+
+    .facebook, .twitter, .linkedin {
+        color: #E6804C;
+        font-size: 40px;
+    }
+
     }
     /***********************************************ECRAN 1240PX******************************************/
     @media screen and (min-width: 1240px) {
@@ -197,26 +194,11 @@ div.map {
             margin-left: -135px;
         }
 
-        /*div.carrousel {*/
-        /*    width: 40em;*/
-        /*    height: 25em;*/
-        /*    margin-left:30px;*/
-        /*}*/
-        /*.carousel-inner{*/
-        /*    width: 40em;*/
-        /*    height: 25em;*/
-        /*    margin-left:30px;*/
-        /*}*/
-        /*.carousel-item {*/
-        /*    width: 40em;*/
-        /*    height: 25em;*/
-        /*    margin-left:30px;*/
-        /*}*/
-        /*.carousel-item  img{*/
-        /*    width: 40em;*/
-        /*    height: 25em;*/
-        /*    margin-left:30px;*/
-        /*}*/
+        /*****************CARROUSEL*****************/
+        div.carrousel { margin-left: 25px; }
+        .carousel-inner { margin-left: 25px; }
+        .carousel-item { margin-left: 25px; }
+        .carousel-item  img { margin-left: 25px; }
     }
     /***********************************************ECRAN 1600PX******************************************/
     @media screen and (min-width: 1600px) {

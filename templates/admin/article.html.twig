@@ -10,8 +10,25 @@
 
 {% block body %}
     <div class="container">
-        <table class="table">
-            <thead>
+        <div class="col text-center">
+            <button id="bouton" class="btn btn-dark btn-lg ">Créer un nouvel article</button>
+        </div>
+        <div class="hide" id="formToHide">
+
+            {{ form_start(form)}}
+
+            {{ form_row(form.title, {'label': 'Titre:', 'attr': {'placeholder': "Titre de l'article"}}) }}
+            {{ form_row(form.content, {'label': 'Article:', 'attr': {'placeholder': "Contenue de l'article"}}) }}
+            {{ form_row(form.picture, {'label': 'Image:', 'attr': {'placeholder': "Image de l'article"}}) }}
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary"><strong>Enregistrer</strong></button>
+            </div>
+
+            {{ form_end(form)}}
+        </div>
+
+        <table class="table-responsive">
             <tr>
                 <th >Id</th>
                 <th >Date de creation</th>
@@ -38,24 +55,6 @@
                 {% endfor %}
             </tr>
         </table>
-        <hr>
-            <div class="col text-center">
-                <button id="bouton" class="btn btn-dark btn-lg ">Créer un nouvel article</button>
-            </div>
-        <div class="hide" id="formToHide">
-
-                {{ form_start(form)}}
-
-                {{ form_row(form.title, {'label': 'Titre:', 'attr': {'placeholder': "Titre de l'article"}}) }}
-                {{ form_row(form.content, {'label': 'Article:', 'attr': {'placeholder': "Contenue de l'article"}}) }}
-                {{ form_row(form.picture, {'label': 'Image:', 'attr': {'placeholder': "Image de l'article"}}) }}
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary"><strong>Enregistrer</strong></button>
-                </div>
-
-                {{ form_end(form)}}
-        </div>
     </div>
 {% endblock %}
 

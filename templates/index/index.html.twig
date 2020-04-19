@@ -9,8 +9,8 @@
 {% block body %}
     <div class="container">
         <div id="accueil">
-            <div class="banniere col-xs-12">
-                <img src="{{ asset('img/accueil/banniere1.png') }}" alt="">
+            <div class="banniere">
+                <img src="{{ asset('img/accueil/banniere1.png') }}" alt="Banniere d'un groupe d'animaux">
             </div>
             <div class="logo text-center">
                 <h1><span class="dark">A</span><span class="orange">nim</span>'<span class="red">Alls</span></h1>
@@ -26,7 +26,6 @@
 
 
                 <div class="carrousel col-md-12 col-xs-5">
-
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             {% for category in categories %}
@@ -110,12 +109,12 @@
                 <h2>Les dérnières news</h2>
                 {% for article in articles %}
                     <div class="article">
-                        <div class="card lg-3">
+                        <div class="card sm-3">
                             <div class="row no-gutters">
-                                <div class="col-lg-4 ">
+                                <div class="col-sm-3 ">
                                     <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-sm-8">
                                     <div class="card-body">
                                         <p class="title"><strong>{{ article.title }}</strong></p>
                                         <p class="date"><small
@@ -133,8 +132,9 @@
             <section class="contact" id="contact">
                 <div class="infos">
                     <h3>Contactez nous</h3>
-                    <p>animalls@gmail.com</p>
-                    <p>01.33.55.88.22</p>
+                    <a href="mailto:">animalls@gmail.com</a>
+                    <br>
+                    <a href="tel:+33133558822">01.33.55.88.22</a>
                     <p>2 Rue de la Liberté, 94300 Vincennes</p>
                 </div>
                 <div class="map  col-xs-5">
@@ -155,7 +155,7 @@
                 {% endfor %}
             </section>
             <hr>
-            <div class="col-md-12 col-sm-4 reseau">
+            <div class="text-center">
                 <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
                 <a href="" class="twitter"><i class="fab fa-twitter"></i></a>
                 <a href="" class="linkedin"><i class="fab fa-linkedin"></i></a>

@@ -150,23 +150,20 @@
 
 
             {# la partie des témoignages, avec une classe Comments #}
-            {# un rajout du Mercredi 15 Avril #}
+            {# un rajout du Mercredi 15 Avril
+             et un autre du Samedi 18 Avril, pour changer les Témoignages en Avis,
+             et ici créer les 3 derniers Avis #}
             <section class="comments" id="comments">
+{# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
                 <div class="">
-                    <article>
-                        <h4>Témoignages des adoptions</h4>
-                        <div class="metadata">Ecrit le 10/05/2019 à 19:00</div>
-                        <div class="content"><img src="#" alt="#">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem, dolores eos
-                                exercitationem quae quaerat?</p>
-                            <p>Accusantium autem distinctio, dolorum et facilis iusto, molestiae non, pariatur
-                                praesentium quod reiciendis sapiente veniam.</p>
-                            <a href="{{ path('comments_show') }}" class=" btn btn-dark">Se rendre sur le tableau des
-                                témoignages</a></div>
-                    </article>
 
-                </div>
-            </section>
+{# création d'une liste dont le chemin est à revoir, y compris le with articles:articles
+ probablement via un chemin vers edit.html.twig
+ #}
+                    {% include 'message/_list.html.twig' with {'content': comment} only %}
+
+            </div>
+        </section>
 
 
             <div class="col-md-12 col-sm-4 reseau">

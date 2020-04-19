@@ -17,9 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/create/article/{id}", defaults={"id": null}, requirements={"id": "\d+"})
+     * @Route("/article/{id}", defaults={"id": null}, requirements={"id": "\d+"})
      */
-    public function create(Request $request, EntityManagerInterface $manager, $id)
+    public function index(Request $request, EntityManagerInterface $manager, ArticleRepository $repository,$id)
     {
         $originalImage = null;
 
@@ -70,28 +70,18 @@ class ArticleController extends AbstractController
 
             $this->addFlash('success', "L'article est enregistré");
 
-            return $this->redirectToRoute('app_admin_article_show');
+            return $this->redirectToRoute('app_admin_article_index');
         }
+            $articles = $repository->findAll();
 
         return $this->render('admin/article.html.twig',
             [
             'form' => $form->createView(),
+            'article' => $articles,
             'original_image' => $originalImage
             ]);
     }
 
-    /**
-     * @Route("/show/article")
-     */
-    public function show( EntityManagerInterface $manager, ArticleRepository $repository)
-    {
-        $articles = $repository->findAll();
-
-        return $this->render('admin/article.html.twig',
-            [
-            'article' => $articles
-            ]);
-    }
 
     /**
      * @Route("/suppression/{id}")
@@ -103,7 +93,7 @@ class ArticleController extends AbstractController
 
         $this->addFlash('success', 'Cette article est supprimé');
 
-        return $this->redirectToRoute('app_admin_article_show');
+        return $this->redirectToRoute('app_admin_article_index');
 
     }
 }

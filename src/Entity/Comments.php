@@ -16,7 +16,6 @@ class Comments
      */
     private $id;
 
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -33,11 +32,6 @@ class Comments
      */
     private $user;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=true)
-     */
-//    private $animal;
 
     public function getId(): ?int
     {

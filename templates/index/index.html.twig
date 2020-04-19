@@ -110,12 +110,12 @@
                 <h2>Les dérnières news</h2>
                 {% for article in articles %}
                     <div class="article">
-                        <div class="card mb-3">
+                        <div class="card lg-3">
                             <div class="row no-gutters">
-                                <div class="col-4">
+                                <div class="col-lg-4 ">
                                     <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-lg-8">
                                     <div class="card-body">
                                         <p class="title"><strong>{{ article.title }}</strong></p>
                                         <p class="date"><small
@@ -146,26 +146,15 @@
                 </div>
             </section>
             <hr>
-            {# ici une image avec un texte du genre "Help us ..." #}
-
-
-            {# la partie des témoignages, avec une classe Comments #}
-            {# un rajout du Mercredi 15 Avril
-             et un autre du Samedi 18 Avril, pour changer les Témoignages en Avis,
-             et ici créer les 3 derniers Avis #}
-            <section class="comments" id="comments">
-{# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
-                <div class="">
-
-{# création d'une liste dont le chemin est à revoir, y compris le with articles:articles
- probablement via un chemin vers edit.html.twig
- #}
-                    {% include 'message/_list.html.twig' with {'content': comment} only %}
-
-            </div>
-        </section>
-
-
+            <section class="comments">
+                {% for comment in comments %}
+                <div class="comment">
+                    <p ><small >{{ comment.createdAt | date('d/m/Y') }}</small>  </p>
+                    <p>{{ comment.content }}</p>
+                </div>
+                {% endfor %}
+            </section>
+            <hr>
             <div class="col-md-12 col-sm-4 reseau">
                 <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
                 <a href="" class="twitter"><i class="fab fa-twitter"></i></a>

@@ -2,16 +2,10 @@
 
 
 {% block body %}
-    <h1>Voici les différents avis sur l'adoption d'un nouveau compagnon</h1>
+    <h1>Laissez nous votre avis</h1>
 
 
         {{ form_start(form) }}
-
-        {{ form_row(form.user) }}
-
-        {# à voir pour plus tard
-        Au sujet de son nouveau compagnon animal : {{ form_row(form.animal) }} #}
-
         {{ form_row(form.content) }}
 
         <div class="text-right">
@@ -30,16 +24,14 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
                 <th>Utilisateur</th>
                 <th>Date de création</th>
                 <th>Contenu</th>
             </tr>
             <tr>
                 {% for comments in comment %}
-                <td>{{ comments.id }}</td>
                 <td>{{ comments.user }}</td>
-                <td>{{ comments.createdAt | date('d/m/Y')}}</td>
+                <td>{{ comments.createAt | date('d/m/Y')}}</td>
                 <td>{{ comments.content }}</td>
 
                 {#

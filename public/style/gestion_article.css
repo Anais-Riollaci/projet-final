@@ -1,12 +1,25 @@
 
 div.container{
-     background-color: white;
      font-size: 15px;
      padding: 0 10px 70px 10px;
  }
-table { margin-bottom: 20px; }
-a#btn{ margin: 10px;}
+#bouton{ margin-bottom: 30px;}
 
-.hide {
-    display: none;
+table { margin-top: 50px; }
+a#btn { margin: 10px;}
+
+.hide { display: none;
+}
+
+body{
+    color: white;
+}
+
+.bouton{
+    background-color: #F5871F;
+    color: white;
+    border: 1px solid #F5871F;
+    border-radius: 5px;
+    height: 40px;
+    margin: 10px;
 }

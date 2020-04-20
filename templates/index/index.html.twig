@@ -18,8 +18,8 @@
             <section class="accueil">
                 <hr>
                 <p>
-                    Bienvenue sur la page Web de l'Association Anim'Alls !
-                    Nous recueillon des animaux et nous les soignons afin de leur trouver une nouvelle famille.
+                    Bienvenue sur le site de l'Association Anim'Alls !
+                    Nous recueillons et soignons des animaux afin de leur trouver une nouvelle famille.
                 </p>
                 <hr>
                 <h2> Nos amis à adopter <i class="fas fa-paw"></i></h2>
@@ -41,10 +41,12 @@
                                          alt="...">
                                     <div class="carousel-caption">
                                         {% if app.user is null %}
-                                            <a class="category-title" href="{{ path('user_login') }}"><strong>{{ category.title }}
+                                            <a class="category-title"
+                                               href="{{ path('user_login') }}"><strong>{{ category.title }}
                                                 </strong></a>
                                         {% else %}
-                                            <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
+                                            <a class="category-title"
+                                               href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
                                                 <strong>{{ category.title }}</strong></a>
                                         {% endif %}
                                     </div>
@@ -64,13 +66,25 @@
                     </div>
                 </div>
                 {% if app.user is null %}
-                    <a href="{{ path('user_login') }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                    <a href="{{ path('user_login') }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                    <a href="{{ path('user_login') }}">
+                        <button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats
+                        </button>
+                    </a>
+                    <a href="{{ path('user_login') }}">
+                        <button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i>
+                    </a>
                 {% else %}
-                    <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                    <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                    <a href="{{ path('search_profile', {"init": {types: 2}}) }}">
+                        <button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats
+                        </button>
+                    </a>
+                    <a href="{{ path('search_profile', {"init": {types: 1}}) }}">
+                        <button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i>
+                        </button>
+                    </a>
+
+
                 {% endif %}
-                </button>
 
             </section>
             <hr>
@@ -78,39 +92,35 @@
                 <h2>L'Association Anim'Alls</h2>
                 <div>
                     <p>
-                        Comme vous vous en doutez en ayant lu en diagonal, nous sommes une association d'aide à
-                        l'adoption
-                        des animaux de compagnie. Un intermédiaire pour permettre à des animaux d'être adopté plus
-                        facilement.
-                        Anim'Alls est bénévole et s'occupe pendant un temps des animaux abandonnés ou qui nous sont
-                        confiés
-                        pour des raisons X et Y (déménagement, hospitalisation, et autres).
-                        Voulez-vous nous aider ? Comme expliqué plus haut, il s'agit de bénévolat.
-                        Une donation nous permet d'améliorer nos moyens et méthodes.
+                        Anim'Alls est une association fondé en 2016 part Paul Dubois, ancien vétérinaire à la retraite,
+                        il a décidé d'aider encore les animaux et de consacré sa vie a les soigner et a les choyer .
+                        Il lutte alors corps et âmes contre toutes les maltraitances et abandons faites sur les animaux.
+
+                        Adopter un animal est un acte responsable. C'est un véritable engagement moral et financier.
+                        Anim'Alls offre aux animaux recueillis une nouvelle chance en mettant tout en oeuvre pour leur
+                        retrouver une famille. Nous recueillons les animaux en détresse, abandonnés, perdus ou
+                        maltraités.
                     </p>
-                    <img src="{{ asset('img/accueil/img-accueil.jpg') }}" align="left" class=" col-xs-4 img-accueil"
+                    <img src="{{ asset('img/accueil/img-accueil.jpg') }}" class="img-accueil"
                          alt="">
                     <p>
-                        Comme vous vous en doutez en ayant lu en diagonal, nous sommes une association d'aide à
-                        l'adoption
-                        des animaux de compagnie. Un intermédiaire pour permettre à des animaux d'être adopté plus
-                        facilement.
-                        Anim'Alls est bénévole et s'occupe pendant un temps des animaux abandonnés ou qui nous sont
-                        confiés
-                        pour des raisons X et Y (déménagement, hospitalisation, et autres).
-                        Voulez-vous nous aider ? Comme expliqué plus haut, il s'agit de bénévolat.
-                        Une donation nous permet d'améliorer nos moyens et méthodes.
-                    </p>
+                        Nous luttons contre les abandons et dénonçons les mauvais traitements infligés aux
+                        animaux.ET nous agissons quotidiennement pour assurer la protection et la défense des animaux
+                        sur l'ensemble du territoire.
+
+                        100 000 animaux de compagnie, subitement devenus encombrants et indésirables, sont abandonnés
+                        tous les ans, dont 60 000 pendant la période estivale. Livrés à eux-mêmes, amenés en fourrière,
+                        ils seront euthanasiés si personne ne peut les recueillir. Pour lutter contre ce fléau et faire
+                        réfléchir certains maîtres sur la fidélité et le respect qu’impliquent le lien qu’ils ont établi
+                        avec leur compagnon, Anim'Alls a placé la lutte contre l’abandon au rang de ses priorités.
                     <p>
-                        Comme vous vous en doutez en ayant lu en diagonal, nous sommes une association d'aide à
-                        l'adoption
-                        des animaux de compagnie. Un intermédiaire pour permettre à des animaux d'être adopté plus
-                        facilement.
-                        Anim'Alls est bénévole et s'occupe pendant un temps des animaux abandonnés ou qui nous sont
-                        confiés
-                        pour des raisons X et Y (déménagement, hospitalisation, et autres).
-                        Voulez-vous nous aider ? Comme expliqué plus haut, il s'agit de bénévolat.
-                        Une donation nous permet d'améliorer nos moyens et méthodes.
+                        Nos missions consistent à :
+                        Lutter contre la maltraitance et les abandons, ​
+                        Recueillir et héberger les animaux abandonnés, perdus ou maltraités et leur trouver un foyer,
+                        Soigner les animaux des propriétaires démunis,
+                        Sensibiliser le grand public et en particulier les jeunes à la protection animale,
+                        Responsabiliser les propriétaires d'animaux,
+                        S'engager auprès des pouvoirs publics pour faire évoluer la cause animale.
                     </p>
                 </div>
             </section>
@@ -161,7 +171,7 @@
 
             {# la partie des témoignages, avec une classe Comments #}
             <section class="comments" id="comments">
-{# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
+                {# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
                 <div class="">
                     {% for comment in comments %}
                         <p>
@@ -174,7 +184,7 @@
                         </p>
                     {% endfor %}
                 </div>
-        </section>
+            </section>
 
 
             <div class="col-md-12 col-sm-4 reseau">

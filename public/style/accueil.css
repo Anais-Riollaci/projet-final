@@ -78,10 +78,12 @@ section.a-propos {
 }
 
 img.img-accueil {
+    display: block;
     width: 15em;
     height: 12em;
     margin-left: 50px;
     margin-right: 10px;
+    float: none;
 }
 
 /*************ARTICLE*************/
@@ -172,6 +174,12 @@ div.map {
 
 }
 
+@media screen and (min-width: 768px) {
+    img.img-accueil {
+        float: left;
+    }
+}
+
 /************************************************ECRAN 1024PX*******************************************/
 @media screen and (min-width: 1024px) {
 
@@ -199,6 +207,8 @@ div.map {
         div.banniere img {
             margin-left: -135px;
         }
+
+
 
         /*****************CARROUSEL*****************/
         div.carrousel { margin-left: 25px; }

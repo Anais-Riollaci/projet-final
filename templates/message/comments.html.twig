@@ -31,7 +31,7 @@
             <div class="hide" id="formToHide">
                     {% for comments in comment %}
                         <hr>
-                    <p>Posté par: {{ comments.user }}, le{{ comments.createAt | date('d/m/Y')}} </p>
+                    <p>Posté par : {{ comments.user }}, le {{ comments.createAt | date('d/m/Y')}} </p>
                     <p>{{ comments.content }}</p>
                         <hr>
                     {% endfor %}

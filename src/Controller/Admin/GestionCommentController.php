@@ -22,8 +22,7 @@ class GestionCommentController extends AbstractController
     }
 
     /**
-     * @Route("delete_comment", name="delete_comment")
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/admin/comment/{id}", name="delete_comment")
      */
     public function delete(EntityManagerInterface $entityManager, Comments $comments)
     {

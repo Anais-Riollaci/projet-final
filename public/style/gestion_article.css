@@ -6,3 +6,7 @@ div.container{
  }
 table { margin-bottom: 20px; }
 a#btn{ margin: 10px;}
+
+.hide {
+    display: none;
+}

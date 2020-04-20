@@ -42,7 +42,7 @@
                 <td>{{ articles.content }}</td>
                 <td>{{ articles.picture }}</td>
                 <td style="text-align: right;">
-                    <a href="{{ path('app_admin_article_index', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
+                    <a href="{{ path('app_admin_article_edit', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
                         <i class="far fa-edit"></i>
                     </a>
                     <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">

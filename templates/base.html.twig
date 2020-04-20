@@ -37,7 +37,7 @@
                             <a class="nav-link" href="{{ path('gestion_category') }}"> Gestion Catégories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_admin_article_index') }}"> Gestion articles</a>
+                            <a class="nav-link" href="{{ path('gestion_comment') }}"> Gestion Avis</a>
                         </li>
                     </ul>
                 </div>
@@ -53,10 +53,10 @@
                 <div class="collapse navbar-collapse" id="navbarUserContent">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#a-propos"> A propos de nous</a>
+                        <a class="nav-link" href="{{ path('app_index_index') }}#a-propos"> A propos de nous</a>
                     </li>
                     <li class="nav-item">   {# pour contacter l'association #}
-                        <a class="nav-link" href="#contact"> Contact</a>
+                        <a class="nav-link" href="{{ path('app_index_index') }}#contact"> Contact</a>
                     </li>
                     {% if app.user is null %}
                         <li class="nav-item">
@@ -78,7 +78,7 @@
                         </li>
                         <!-- pour déposer un Témoignage d'adoption, accessible seulement aux Admin et User -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_comment_comment') }}">Avis</a>
+                            <a class="nav-link" href="{{ path('comment') }}">Avis</a>
                         </li>
 
                         <li class="nav-item">

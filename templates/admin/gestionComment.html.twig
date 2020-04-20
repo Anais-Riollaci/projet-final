@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Gestion des Avis</h1>
+
+        <table class="table-responsive">
+            <thead class="thead-orange">
+            <tr>
+                <th colspan="3" scope="col">Avis</th>
+            </tr>
+            <tr>
+                <th>Id de l'avis</th>
+                <th>Pseudo de l'Utilisateur</th>
+                <th>Avis</th>
+                <th>Date de l'Avis</th>
+            </tr>
+            <tr>
+                {% for comment in comments %}
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.user }}</td>
+                <td>{{ comment.content }}</td>
+                <td>{{ comment.createAt | date('d/m/Y')}}</td>
+                <td>
+                    <a href="{{ path('delete_comment', { 'id' : comment.id }) }}">
+                        <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                    </a>
+                </td>
+            <tr>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+{% endblock %}

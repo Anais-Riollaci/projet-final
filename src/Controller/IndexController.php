@@ -4,26 +4,23 @@
 namespace App\Controller;
 
 use App\Entity\Comments;
-use App\Form\CommentsType;
+
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-
-
-
 class IndexController extends AbstractController
 {
     /**
      * @Route("/")
      */
-    public function index(CategoryRepository $categoryRepository,
-                          ArticleRepository $repository,
-                          CommentsRepository $commentsRepository
-                         )
+    public function index(
+        CategoryRepository $categoryRepository,
+        ArticleRepository $repository,
+        CommentsRepository $commentsRepository
+    )
     {
         $categories = $categoryRepository->findAll();
 
@@ -46,9 +43,9 @@ class IndexController extends AbstractController
             [
                 'articles' => $articles,
                 'categories' => $categories,
-                'comments' => $comments,
-
+                'comments' => $comments
             ]
         );
     }
+
 }

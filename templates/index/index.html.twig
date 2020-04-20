@@ -116,7 +116,7 @@
             </section>
             <hr>
             <section class="articles">
-                <h2>Les dérnières news</h2>
+                <h2>Les dernières news</h2>
                 {% for article in articles %}
                     <div class="article">
                         <div class="card sm-3">
@@ -156,16 +156,28 @@
                 </div>
             </section>
             <hr>
-            <section class="comments">
-                {% for comment in comments %}
-                <div class="comment">
-                    <p ><small >{{ comment.createdAt | date('d/m/Y') }}</small>  </p>
-                    <p>{{ comment.content }}</p>
+            {# ici une image avec un texte du genre "Help us ..." #}
+
+
+            {# la partie des témoignages, avec une classe Comments #}
+            <section class="comments" id="comments">
+{# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
+                <div class="">
+                    {% for comment in comments %}
+                        <p>
+                            <small>
+                                {{ comment.createAt|date('d/m/Y') }}
+                            </small>
+                        </p>
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </section>
-            <hr>
-            <div class="text-center">
+        </section>
+
+
+            <div class="col-md-12 col-sm-4 reseau">
                 <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
                 <a href="" class="twitter"><i class="fab fa-twitter"></i></a>
                 <a href="" class="linkedin"><i class="fab fa-linkedin"></i></a>

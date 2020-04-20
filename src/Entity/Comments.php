@@ -62,6 +62,7 @@ class Comments
         return $this;
     }
 
+    // vérifier l'importance du ?User, qui me surprend
     public function getUser(): ?User
     {
         return $this->user;
@@ -73,11 +74,5 @@ class Comments
 
         return $this;
     }
-
-//    public function getAnimal(): ?Animal
-//    {          return $this->animal;      }
-
-//    public function setAnimal(?Animal $animal): self
-//    {        $this->animal = $animal;         return $this;     }
 
 }

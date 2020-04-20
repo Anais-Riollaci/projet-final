@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentController extends AbstractController
 {
     /**
-     * @Route("/comment")
+     * @Route("/comment", name="comment")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function comment(Request $request,
                             EntityManagerInterface $manager,
                             CommentsRepository $repository
                             )
 
-        //  ici se fait la création des avis
     {
         $comment = new Comments();
         $form = $this->createForm(CommentsType::class, $comment);
@@ -28,9 +28,8 @@ class CommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $comment = $this->getUser();
-
-
+            $comment->setUser($this->getUser());
+            $comment->setCreateAt(new \DateTime());
 
             $manager->persist($comment);
             $manager->flush();
@@ -39,15 +38,14 @@ class CommentController extends AbstractController
 
 
             // normalement, le route 'accueil devrait ramener vers l'accueil'
-            return $this->redirectToRoute('app_comment_comment');
+            return $this->redirectToRoute('app_index_index');
 
-            }
+        }
             $comment = $repository->findAll();
 
         return $this->render('message/comments.html.twig', [
             'form' => $form->createView(),
-            // création de formulaire avec le mot form
-            'comment' => $comment,
+            'comment' => $comment
         ]);
     }
 }

@@ -2,10 +2,12 @@
 
 
 {% block body %}
-    <h1>Laissez nous votre avis</h1>
+    <h1>Voici les différents avis sur l'adoption d'un nouveau compagnon</h1>
 
 
         {{ form_start(form) }}
+
+
         {{ form_row(form.content) }}
 
         <div class="text-right">
@@ -15,10 +17,6 @@
         </div>
 
         {{ form_end(form) }}
-
-    {# montrer les avis déjà existant
-    pour plus tard, en js, au cloc montrer tout les avis, à copier / adapter dans profils animal
-    #}
 
     <div class="container">
         <table class="table">

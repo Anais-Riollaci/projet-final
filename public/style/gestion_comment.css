@@ -1,0 +1,16 @@
+div.container{
+    background-color: white;
+    font-size: 15px;
+    padding: 0 10px 70px 10px;
+}
+table {
+    margin-bottom: 20px;
+}
+a#btn{ margin: 10px;}
+
+
+.bouton{
+    margin-top: 10px;
+    background-color: #E6804C;
+    color: white;
+}

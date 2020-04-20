@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/gestion_comment.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Voici les différents avis sur l'adoption d'un nouveau compagnon</h1>
+    <div class="container">
+    <h1>Vos avis</h1>
 
 
         {{ form_start(form) }}
@@ -10,6 +14,7 @@
 
         {{ form_row(form.content) }}
 
+    <hr>
         <div class="text-right">
             <button type="submit" class="btn btn-primary">
                 Envoyer
@@ -49,6 +54,7 @@
         </table>
     </div>
 
+    </div>
 
 {% endblock %}
 

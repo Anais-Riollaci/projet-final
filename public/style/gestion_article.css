@@ -6,9 +6,9 @@ div.container{
 #bouton{ margin-bottom: 30px;}
 
 table { margin-top: 50px; }
+a#btn { margin: 10px;}
 
-.hide {
-    display: none;
+.hide { display: none;
 }
 
 body{

@@ -41,10 +41,12 @@
                                          alt="...">
                                     <div class="carousel-caption">
                                         {% if app.user is null %}
-                                            <a class="category-title" href="{{ path('user_login') }}"><strong>{{ category.title }}
+                                            <a class="category-title"
+                                               href="{{ path('user_login') }}"><strong>{{ category.title }}
                                                 </strong></a>
                                         {% else %}
-                                            <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
+                                            <a class="category-title"
+                                               href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
                                                 <strong>{{ category.title }}</strong></a>
                                         {% endif %}
                                     </div>
@@ -64,13 +66,25 @@
                     </div>
                 </div>
                 {% if app.user is null %}
-                    <a href="{{ path('user_login') }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                    <a href="{{ path('user_login') }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                    <a href="{{ path('user_login') }}">
+                        <button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats
+                        </button>
+                    </a>
+                    <a href="{{ path('user_login') }}">
+                        <button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i>
+                    </a>
                 {% else %}
-                    <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                    <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                    <a href="{{ path('search_profile', {"init": {types: 2}}) }}">
+                        <button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats
+                        </button>
+                    </a>
+                    <a href="{{ path('search_profile', {"init": {types: 1}}) }}">
+                        <button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i>
+                        </button>
+                    </a>
+
+
                 {% endif %}
-                </button>
 
             </section>
             <hr>
@@ -100,7 +114,6 @@
                         pour des raisons X et Y (déménagement, hospitalisation, et autres).
                         Voulez-vous nous aider ? Comme expliqué plus haut, il s'agit de bénévolat.
                         Une donation nous permet d'améliorer nos moyens et méthodes.
-                    </p>
                     <p>
                         Comme vous vous en doutez en ayant lu en diagonal, nous sommes une association d'aide à
                         l'adoption
@@ -161,7 +174,7 @@
 
             {# la partie des témoignages, avec une classe Comments #}
             <section class="comments" id="comments">
-{# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
+                {# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
                 <div class="">
                     {% for comment in comments %}
                         <p>
@@ -174,7 +187,7 @@
                         </p>
                     {% endfor %}
                 </div>
-        </section>
+            </section>
 
 
             <div class="col-md-12 col-sm-4 reseau">

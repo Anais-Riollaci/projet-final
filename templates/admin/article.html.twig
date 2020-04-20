@@ -7,7 +7,7 @@
 
 
 {% block body %}
-    <div class="container">
+    <section class="gestion-article">
         <div class="col text-center">
             <button id="bouton" class="bouton">Créer un nouvel article</button>
         </div>
@@ -26,26 +26,33 @@
             {{ form_end(form)}}
         </div>
 
-        <table class="table-responsive">
+        <table class="table-responsive" >
+
             <tr>
-                <th >Id</th>
-                <th >Date de creation</th>
-                <th >Titre</th>
-                <th >Contenu</th>
-                <th >Image</th>
+                <th class="th-id">Id</th>
+                <th class="th-date">Date de creation</th>
+                <th class="th-titre">Titre</th>
+                <th class="th-content">Contenu</th>
+                <th class="th-image">Image</th>
             </tr>
+ 
             <tr>
                 {% for articles in article %}
-                <td>{{ articles.id }}</td>
-                <td>{{ articles.createdAt | date('d/m/Y')}}</td>
-                <td>{{ articles.title }}</td>
-                <td>{{ articles.content }}</td>
-                <td>{{ articles.picture }}</td>
+                <td class="td-id">{{ articles.id }}</td>
+   
+                <td class="td-date">{{ articles.createdAt | date('d/m/Y')}}</td>
+   
+                <td class="td-titre">{{ articles.title }}</td>
+
+                <td class="td-content">{{ articles.content }}</td>
+         
+                <td class="td-image">{{ articles.picture }}</td>
+         
                 <td style="text-align: right;">
-                    <a href="{{ path('app_admin_article_edit', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
+                    <a href="{{ path('app_admin_article_edit', {'id': articles.id}) }}" id="btn" class="btn btn-outline-warning">
                         <i class="far fa-edit"></i>
                     </a>
-                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
+                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-danger">
                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
@@ -53,7 +60,7 @@
                 {% endfor %}
             </tr>
         </table>
-    </div>
+    </section>
 {% endblock %}
 
 

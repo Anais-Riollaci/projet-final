@@ -7,7 +7,7 @@
 
 
 {% block body %}
-<div class="container">
+<section class="gestion-article">
 
         {{ form_start(form)}}
 
@@ -16,11 +16,11 @@
         {{ form_row(form.picture, {'label': 'Image:'}) }}
 
         <div class="text-center">
-            <button type="submit" class="btn btn-outline-primary"><strong>Enregistrer</strong></button>
+            <button type="submit" class="btn btn-warning"><strong>Enregistrer</strong></button>
         </div>
 
         {{ form_end(form)}}
-</div>
+</section>
 
 {% endblock %}
 

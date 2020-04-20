@@ -1,1 +1,46 @@
-{% extends 'base.html.twig' %}{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('style/Profile.css') }}">{% endblock %}{% block body %}    <div class="row row-image">        <div class="offset-4 col-4">            <div class="img-thumbnail"                 style='background-image: url("{{ animal.image }}")'></div>        </div>    </div>    <div class="row row-data">        <div class="offset-2 col-8">            <div class="list-group">                <div class="list-group-item profile">                    Profil                </div>                <div class="list-group-item list-group-item-action">Nom: {{ animal.name }}</div>                <div class="list-group-item list-group-item-action">Race: {{ animal.race.name }}</div>                <div href="#" class="list-group-item list-group-item-action">Sexe:                    {% if animal.gender == 'm' %}                        Mâle                    {% else %}                        Femelle                    {% endif %}                </div>                <div href="#" class="list-group-item list-group-item-action">                    {% set age_years = age|date('%y') %}                    Âge:                    {% if age_years >= 1 %}                        {{ age_years }} ans                    {% else %}                        {{ age|date('%m') }} mois                    {% endif %}                </div>            </div>        </div>    </div>{% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/Profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row row-image">
+        <div class="offset-4 col-4">
+            <div class="img-thumbnail"
+                 style='background-image: url("{{ animal.image }}")'></div>
+        </div>
+    </div>
+    <div class="row row-data">
+        <div class="offset-2 col-8">
+            <div class="list-group">
+                <div class="list-group-item profile">
+                    Profil
+                </div>
+                <div class="list-group-item list-group-item-action">Nom: {{ animal.name }}</div>
+                <div class="list-group-item list-group-item-action">Race: {{ animal.race.name }}</div>
+
+                <div href="#" class="list-group-item list-group-item-action">Sexe:
+                    {% if animal.gender == 'm' %}
+                        Mâle
+                    {% else %}
+                        Femelle
+                    {% endif %}
+                </div>
+                <div href="#" class="list-group-item list-group-item-action">
+                    {% set age_years = age|date('%y') %}
+                    Âge:
+                    {% if age_years >= 1 %}
+                        {{ age_years }} ans
+                    {% else %}
+                        {{ age|date('%m') }} mois
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

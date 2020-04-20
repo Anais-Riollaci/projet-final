@@ -5,19 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
+    <section class="gestion-avis">
         <h1>Gestion des Avis</h1>
 
         <table class="table-responsive">
             <thead class="thead-orange">
             <tr>
-                <th colspan="3" scope="col">Avis</th>
-            </tr>
-            <tr>
-                <th>Id de l'avis</th>
-                <th>Pseudo de l'Utilisateur</th>
-                <th>Avis</th>
-                <th>Date de l'Avis</th>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Contenu</th>
+                <th>Date</th>
             </tr>
             <tr>
                 {% for comment in comments %}
@@ -34,5 +31,5 @@
                 {% endfor %}
             </tr>
         </table>
-    </div>
+    </section>
 {% endblock %}

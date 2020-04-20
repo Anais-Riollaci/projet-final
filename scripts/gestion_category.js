@@ -1,0 +1,1 @@
+//sur le clique du boutton le formulaire d'ajout apparait$("#bouton").click(function(){    $("#formToHide").toggle();})

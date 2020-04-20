@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ asset('style/connexion.css') }}">
 {% endblock %}
 {% block body %}
+<section class="login">
 
     <h1>Connexion</h1>
         <form action="{{ path('user_login') }}" method="POST">
@@ -16,6 +17,6 @@
                 <button type="submit" class="btn btn-success btn-lg btn-block">Connexion</button>
             </div>
         </form>
-
+</section>
 {% endblock %}
 

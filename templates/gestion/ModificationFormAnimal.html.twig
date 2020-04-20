@@ -1,1 +1,29 @@
-{% extends 'base.html.twig' %}{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('style/gestion_modif_animal.css') }}">{% endblock %}{% block body %}    {% form_theme ModificationAnimal _self %}    {{ form_start(ModificationAnimal) }}    {{ form_row(ModificationAnimal.name, { 'label': 'Nom' }) }}    {{ form_row(ModificationAnimal.species, { 'label': 'Espèce' }) }}    {{ form_row(ModificationAnimal.race, { 'label': 'Race' }) }}    {{ form_row(ModificationAnimal.gender, { 'label': 'Sexe' }) }}    {{ form_row(ModificationAnimal.birthdate, { 'label': 'Date de naissance' }) }}    {{ form_row(ModificationAnimal.category, { 'label': 'Catégorie' }) }}    {{ form_row(ModificationAnimal.photo) }}    {% if photo is not null %}        <p>Actuellement :</p>        <img src="{{ asset(photo) }}" height="150px">    {% endif %}    {{ form_end(ModificationAnimal) }}{% endblock %}{% block javascripts %}    <script src="{{ asset('scripts/gestion_profile_animal.js') }}"></script>{% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/gestion_modif_animal.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="modif">
+    {% form_theme ModificationAnimal _self %}
+    {{ form_start(ModificationAnimal) }}
+    {{ form_row(ModificationAnimal.name, { 'label': 'Nom' }) }}
+    {{ form_row(ModificationAnimal.species, { 'label': 'Espèce' }) }}
+    {{ form_row(ModificationAnimal.race, { 'label': 'Race' }) }}
+    {{ form_row(ModificationAnimal.gender, { 'label': 'Sexe' }) }}
+    {{ form_row(ModificationAnimal.birthdate, { 'label': 'Date de naissance' }) }}
+    {{ form_row(ModificationAnimal.category, { 'label': 'Catégorie' }) }}
+    {{ form_row(ModificationAnimal.photo) }}
+    {% if photo is not null %}
+        <p>Actuellement :</p>
+        <img src="{{ asset(photo) }}" height="150px">
+    {% endif %}
+    {{ form_end(ModificationAnimal) }}
+
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/gestion_profile_animal.js') }}"></script>
+{% endblock %}

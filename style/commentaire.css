@@ -1,0 +1,117 @@
+div.container {
+    border: 1px solid white;
+    background-color: white;
+    width: 88%;
+    max-height: 100%;
+}
+
+div.banniere img {
+    width: 155%;
+    background-color: white;
+    box-shadow: 1px 2px 11px -1px rgba(0, 0, 0, 1);
+    margin: 5px 0 30px -58px;
+}
+
+span.dark { color: #8B0000; }
+span.orange { color: #FF8C00; }
+span.red { color: #FF0000; }
+button { margin-top: 10px;}
+
+.depo-avis{
+    margin-top: 30px ;
+}
+
+.hide { display: none;
+}
+.users-avis{
+    margin-bottom: 70px;
+}
+#bouton{
+    margin: 30px;
+}
+
+
+@media screen and (min-width: 480px) {
+    div.banniere img {
+        width: 145%;
+        margin-left: -70px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    div.banniere img {
+        width: 140%;
+        margin-left: -80px;
+    }
+}
+
+@media screen and (min-width: 660px) {
+    div.banniere img {
+        width: 145%;
+        margin-left: -95px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    div.banniere img {
+        width: 135%;
+        margin-left: -95px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    div.banniere img {
+        width: 130%;
+        margin-left: -108px;
+    }
+
+    .depo-avis{
+        margin-left: 100px;
+    }
+
+
+@media screen and (min-width: 1240px) {
+    div.banniere img {
+        margin-left: -135px;
+    }
+
+    .depo-avis{
+        margin-left: 130px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    div.banniere img {
+        width: 135%;
+        margin-left: -160px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

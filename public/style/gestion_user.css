@@ -1,5 +1,7 @@
 div.container{
-    background-color: white;
     font-size: 15px;
     padding-bottom:100px ;
 }
+ body{
+     color: white;
+ }

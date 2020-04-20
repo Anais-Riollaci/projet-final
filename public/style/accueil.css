@@ -8,6 +8,12 @@ section {
     margin: 10px 10px 40px 10px;
 }
 
+.reseau{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 div.container {
     border: 1px solid white;
     background-color: white;

@@ -9,7 +9,7 @@
 {% block body %}
     <div class="container">
         <div class="col text-center">
-            <button id="bouton" class="btn btn-dark btn-lg ">Créer un nouvel article</button>
+            <button id="bouton" class="bouton">Créer un nouvel article</button>
         </div>
         <div class="hide" id="formToHide">
 
@@ -20,7 +20,7 @@
             {{ form_row(form.picture, {'label': 'Image:', 'attr': {'placeholder': "Image de l'article"}}) }}
 
             <div class="text-center">
-                <button type="submit" class="btn btn-outline-primary"><strong>Enregistrer</strong></button>
+                <button type="submit" class="btn btn-outline-light"><strong>Enregistrer</strong></button>
             </div>
 
             {{ form_end(form)}}
@@ -42,10 +42,10 @@
                 <td>{{ articles.content }}</td>
                 <td>{{ articles.picture }}</td>
                 <td style="text-align: right;">
-                    <a href="{{ path('app_admin_article_index', {'id': articles.id}) }}" id="btn" class="btn btn-outline-warning">
+                    <a href="{{ path('app_admin_article_index', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
                         <i class="far fa-edit"></i>
                     </a>
-                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-danger">
+                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-light">
                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

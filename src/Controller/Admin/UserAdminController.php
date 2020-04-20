@@ -25,14 +25,14 @@ class UserAdminController extends AbstractController
     }
 
     /**
-     * @Route("/suppression/{id}")
+     * @Route("/user/suppression/{id}")
      */
     public function delete( EntityManagerInterface $manager, User $user)
     {
         $manager->remove($user);
         $manager->flush();
 
-        $this->addFlash('success', 'Cette utitlisateur est supprimé');
+        $this->addFlash('success', 'Cet utilisateur est supprimé');
 
         return $this->redirectToRoute('app_admin_useradmin_show');
 

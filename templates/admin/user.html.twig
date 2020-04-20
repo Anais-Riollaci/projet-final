@@ -8,18 +8,19 @@
 <div class="container">
     <h1>Gestion utilisateur</h1>
 
-    <table class="table">
+    <table class="table-responsive">
         <thead>
         <tr>
-            <th scope="col-1">Id</th>
-            <th scope="col-2">Nom</th>
-            <th scope="col-2">Prénom</th>
-            <th scope="col-2">Date de naissance</th>
-            <th scope="col-3">Adresse</th>
-            <th scope="col-2">Code postal</th>
-            <th scope="col-2">Ville</th>
-            <th scope="col-3">N°téléphone</th>
-            <th scope="col-4">Email</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Adresse</th>
+            <th>Code postal</th>
+            <th>Ville</th>
+            <th>N°téléphone</th>
+            <th>Email</th>
+            <th>Supp</th>
         </tr>
         <tr>
             {% for users in user %}
@@ -34,7 +35,7 @@
             <td>{{ users.email }}</td>
             <td>
                 <a href="{{ path('app_admin_useradmin_delete', { 'id' : users.id }) }}">
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 </a>
             </td>
         <tr>

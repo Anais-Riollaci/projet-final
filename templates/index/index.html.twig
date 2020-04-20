@@ -9,8 +9,8 @@
 {% block body %}
     <div class="container">
         <div id="accueil">
-            <div class="banniere col-xs-12">
-                <img src="{{ asset('img/accueil/banniere1.png') }}" alt="">
+            <div class="banniere">
+                <img src="{{ asset('img/accueil/banniere1.png') }}" alt="Banniere d'un groupe d'animaux">
             </div>
             <div class="logo text-center">
                 <h1><span class="dark">A</span><span class="orange">nim</span>'<span class="red">Alls</span></h1>
@@ -26,7 +26,6 @@
 
 
                 <div class="carrousel col-md-12 col-xs-5">
-
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             {% for category in categories %}
@@ -41,7 +40,13 @@
                                          class="d-block w-100"
                                          alt="...">
                                     <div class="carousel-caption">
-                                        <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}"><strong>{{ category.title }}</strong></a>
+                                        {% if app.user is null %}
+                                            <a class="category-title" href="{{ path('user_login') }}"><strong>{{ category.title }}
+                                                </strong></a>
+                                        {% else %}
+                                            <a class="category-title" href="{{ path('search_profile', {"init": {categories: category.id}}) }}">
+                                                <strong>{{ category.title }}</strong></a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}
@@ -58,9 +63,13 @@
                         </a>
                     </div>
                 </div>
-
-                <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
-                <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% if app.user is null %}
+                    <a href="{{ path('user_login') }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
+                    <a href="{{ path('user_login') }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% else %}
+                    <a href="{{ path('search_profile', {"init": {types: 2}})  }}"><button type="submit" id="cat" class="btn btn-dark btn-md"><i class="fas fa-cat"></i> Nos chats</button></a>
+                    <a href="{{ path('search_profile', {"init": {types: 1}})  }}"><button type="submit" id="dog" class="btn btn-dark btn-md">Nos chiens <i class="fas fa-dog"></i></a>
+                {% endif %}
                 </button>
 
             </section>
@@ -110,12 +119,12 @@
                 <h2>Les dérnières news</h2>
                 {% for article in articles %}
                     <div class="article">
-                        <div class="card mb-3">
+                        <div class="card sm-3">
                             <div class="row no-gutters">
-                                <div class="col-4">
+                                <div class="col-sm-3 ">
                                     <img src="{{ asset('images/' ~ article.picture) }}" class="img" alt="...">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-sm-8">
                                     <div class="card-body">
                                         <p class="title"><strong>{{ article.title }}</strong></p>
                                         <p class="date"><small
@@ -133,8 +142,9 @@
             <section class="contact" id="contact">
                 <div class="infos">
                     <h3>Contactez nous</h3>
-                    <p>animalls@gmail.com</p>
-                    <p>01.33.55.88.22</p>
+                    <a href="mailto:">animalls@gmail.com</a>
+                    <br>
+                    <a href="tel:+33133558822">01.33.55.88.22</a>
                     <p>2 Rue de la Liberté, 94300 Vincennes</p>
                 </div>
                 <div class="map  col-xs-5">
@@ -146,30 +156,16 @@
                 </div>
             </section>
             <hr>
-            {# ici une image avec un texte du genre "Help us ..." #}
-
-
-            {# la partie des témoignages, avec une classe Comments #}
-            {# un rajout du Mercredi 15 Avril #}
-            <section class="comments" id="comments">
-                <div class="">
-                    <article>
-                        <h4>Témoignages des adoptions</h4>
-                        <div class="metadata">Ecrit le 10/05/2019 à 19:00</div>
-                        <div class="content"><img src="#" alt="#">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem, dolores eos
-                                exercitationem quae quaerat?</p>
-                            <p>Accusantium autem distinctio, dolorum et facilis iusto, molestiae non, pariatur
-                                praesentium quod reiciendis sapiente veniam.</p>
-                            <a href="{{ path('comments_show') }}" class=" btn btn-dark">Se rendre sur le tableau des
-                                témoignages</a></div>
-                    </article>
-
+            <section class="comments">
+                {% for comment in comments %}
+                <div class="comment">
+                    <p ><small >{{ comment.createdAt | date('d/m/Y') }}</small>  </p>
+                    <p>{{ comment.content }}</p>
                 </div>
+                {% endfor %}
             </section>
-
-
-            <div class="col-md-12 col-sm-4 reseau">
+            <hr>
+            <div class="text-center">
                 <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
                 <a href="" class="twitter"><i class="fab fa-twitter"></i></a>
                 <a href="" class="linkedin"><i class="fab fa-linkedin"></i></a>

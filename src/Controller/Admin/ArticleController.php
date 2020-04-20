@@ -17,9 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/create/{id}", defaults={"id": null}, requirements={"id": "\d+"})
+     * @Route("/article/{id}", defaults={"id": null}, requirements={"id": "\d+"})
      */
-    public function create(Request $request, EntityManagerInterface $manager,$id)
+    public function index(Request $request, EntityManagerInterface $manager, ArticleRepository $repository,$id)
     {
         $originalImage = null;
 
@@ -28,9 +28,9 @@ class ArticleController extends AbstractController
         } else {
             $article = $manager->find(Article::class, $id);
 
-        if (is_null($article)) {
-            throw new NotFoundHttpException();
-        }
+            if (is_null($article)) {
+                throw new NotFoundHttpException();
+            }
             if (!is_null($article->getPicture())) {
                 $originalImage = $article->getPicture();
 
@@ -49,7 +49,7 @@ class ArticleController extends AbstractController
             $article->setCreatedAt(new \DateTime());
 
 
-                if (!is_null($image)) {
+            if (!is_null($image)) {
                 $filename = uniqid() . '.' . $image->guessExtension();
 
                 $image->move(
@@ -63,32 +63,25 @@ class ArticleController extends AbstractController
                 }
             } else {
                 $article->setPicture($originalImage);
-                }
+            }
 
             $manager->persist($article);
             $manager->flush();
 
             $this->addFlash('success', "L'article est enregistré");
 
-            return $this->redirectToRoute('app_admin_article_show');
+            return $this->redirectToRoute('app_admin_article_index');
         }
+            $articles = $repository->findAll();
 
-            return $this->render('admin/article/create.html.twig', [
-                'form' => $form->createView(),
-                'original_image' => $originalImage
+        return $this->render('admin/article.html.twig',
+            [
+            'form' => $form->createView(),
+            'article' => $articles,
+            'original_image' => $originalImage
             ]);
     }
 
-    /**
-     * @Route("/gestion/article")
-     */
-    public function show( EntityManagerInterface $manager, ArticleRepository $repository)
-    {
-        $articles = $repository->findAll();
-        return $this->render('admin/article/show.html.twig', [
-            'article' => $articles
-        ]);
-    }
 
     /**
      * @Route("/suppression/{id}")
@@ -100,7 +93,7 @@ class ArticleController extends AbstractController
 
         $this->addFlash('success', 'Cette article est supprimé');
 
-        return $this->redirectToRoute('app_admin_article_show');
+        return $this->redirectToRoute('app_admin_article_index');
 
     }
 }

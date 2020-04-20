@@ -3,7 +3,9 @@ div.container{
      font-size: 15px;
      padding: 0 10px 70px 10px;
  }
-table { margin-bottom: 20px; }
+#bouton{ margin-bottom: 30px;}
+
+table { margin-top: 50px; }
 
 .hide {
     display: none;

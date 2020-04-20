@@ -165,27 +165,24 @@
                     </iframe>
                 </div>
             </section>
-            <hr>
-            {# ici une image avec un texte du genre "Help us ..." #}
-
-
-            {# la partie des témoignages, avec une classe Comments #}
-            <section class="comments" id="comments">
-                {# pour la div, il faudra peut-être l'utiliser pour du CSS ou du BOOTSTRAP #}
-                <div class="">
-                    {% for comment in comments %}
-                        <p>
-                            <small>
-                                {{ comment.createAt|date('d/m/Y') }}
-                            </small>
-                        </p>
-                        <p>
-                            {{ comment.content }}
-                        </p>
-                    {% endfor %}
-                </div>
+            <section class="comments">
+            <h3>Avis</h3>
+            {% for comment in comments %}
+                <hr>
+                <p>Posté par: {{ comment.user }}, le{{ comment.createAt | date('d/m/Y')}} </p>
+                <p>{{ comment.content }}</p>
+                <hr>
+            {% endfor %}
+            {% if app.user is null %}
+                <a href="{{ path('user_login') }}">
+                    <button type="submit" id="cat" class="btn btn-dark btn-md">Laissez nous votre avis</button>
+                </a>
+            {% else %}
+                <a href="{{ path('comment') }}">
+                    <button type="submit" id="cat" class="btn btn-dark btn-md">Laissez nous votre avis</button>
+                </a>
+            {% endif %}
             </section>
-
 
             <div class="col-md-12 col-sm-4 reseau">
                 <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>

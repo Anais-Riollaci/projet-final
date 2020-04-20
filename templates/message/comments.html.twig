@@ -1,60 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('style/gestion_comment.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/commentaire.css') }}">
 {% endblock %}
 
 {% block body %}
     <div class="container">
-    <h1>Vos avis</h1>
-
-
-        {{ form_start(form) }}
-
-
-        {{ form_row(form.content) }}
-
-    <hr>
-        <div class="text-right">
-            <button type="submit" class="btn btn-primary">
-                Envoyer
-            </button>
+        <div class="banniere">
+            <img src="{{ asset('img/accueil/banniere1.png') }}" alt="Banniere d'un groupe d'animaux">
+        </div>
+        <div class="logo text-center">
+            <h1><span class="dark">A</span><span class="orange">nim</span>'<span class="red">Alls</span></h1>
+        </div>
+        <div class="depo-avis">
+            <h2>Laissez nous votre avis</h2>
+            <div class="col-lg-10">
+                    {{ form_start(form) }}
+                    {{ form_row(form.content,{'label': 'Exprimez vous ici:'}) }}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-sm">Envoyer</button>
+                </div>
+                    {{ form_end(form) }}
+            </div>
         </div>
 
-        {{ form_end(form) }}
-
-    <div class="container">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Utilisateur</th>
-                <th>Date de création</th>
-                <th>Contenu</th>
-            </tr>
-            <tr>
-                {% for comments in comment %}
-                <td>{{ comments.user }}</td>
-                <td>{{ comments.createAt | date('d/m/Y')}}</td>
-                <td>{{ comments.content }}</td>
-
-                {#
-                à voir sur le code d'anais
-                <td style="text-align: right;">
-                    <a href="{{ path('', {'id': articles.id}) }}">
-                        <button type="submit" class="btn btn-warning"><i class="far fa-edit"></i></button>
-                    </a>
-                    <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}">
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                    </a>
-                </td>
-                #}
-            <tr>
-                {% endfor %}
-            </tr>
-        </table>
-    </div>
-
-    </div>
-
+        <div class="users-avis">
+            <div class="col text-center">
+                <button id="bouton" class="btn btn-dark">Voir tous les articles</button>
+            </div>
+            <div class="hide" id="formToHide">
+                    {% for comments in comment %}
+                        <hr>
+                    <p>Posté par: {{ comments.user }}, le{{ comments.createAt | date('d/m/Y')}} </p>
+                    <p>{{ comments.content }}</p>
+                        <hr>
+                    {% endfor %}
+            </div>
+        </div>
+</div>
 {% endblock %}
 
+{% block javascripts %}
+    <script src="{{ asset('scripts/gestion_article.js') }}"></script>
+{% endblock %}

@@ -2,18 +2,6 @@ section {
     text-align: center;
 }
 
-.facebook, .twitter, .linkedin {
-    color: #E6804C;
-    font-size: 30px;
-    margin: 10px 10px 40px 10px;
-}
-
-.reseau{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 div.container {
     border: 1px solid white;
     background-color: white;
@@ -86,6 +74,18 @@ img.img-accueil {
     float: none;
 }
 
+.facebook, .twitter, .linkedin {
+    color: #E6804C;
+    font-size: 30px;
+    margin: 10px 10px 40px 10px;
+}
+
+.reseau{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*************ARTICLE*************/
 section.articles {
     font-size: 12px;
@@ -113,12 +113,11 @@ div.map {
     margin: auto;
 }
 
-/********TEMOIGNAGE/AVIS********/
-/*.bouton {*/
-/*    background-color: #686E73;*/
-/*    border-radius: 5px;*/
-/*    color: white;*/
-/*}*/
+/*****AVIS****/
+section.comments{
+    text-align: left;
+    margin: 40px 0 30px 0;
+}
 
 
 /************************************************ECRAN 768PX*******************************************/

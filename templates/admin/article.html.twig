@@ -8,9 +8,11 @@
 
 {% block body %}
     <div class="container">
+       {#{% if articles.id is null %}#}
         <div class="col text-center">
             <button id="bouton" class="btn btn-dark btn-lg ">Créer un nouvel article</button>
         </div>
+
         <div class="hide" id="formToHide">
 
             {{ form_start(form)}}
@@ -42,7 +44,7 @@
                 <td>{{ articles.content }}</td>
                 <td>{{ articles.picture }}</td>
                 <td style="text-align: right;">
-                    <a href="{{ path('app_admin_article_index', {'id': articles.id}) }}" id="btn" class="btn btn-outline-warning">
+                    <a href="{{ path('app_admin_article_edit', {'id': articles.id}) }}" id="btn" class="btn btn-outline-warning">
                         <i class="far fa-edit"></i>
                     </a>
                     <a href="{{ path('app_admin_article_delete', {'id': articles.id}) }}" id="btn" class="btn btn-outline-danger">
@@ -55,10 +57,6 @@
         </table>
     </div>
 {% endblock %}
-
-
-
-
 
 {% block javascripts %}
     <script src="{{ asset('scripts/gestion_article.js') }}"></script>

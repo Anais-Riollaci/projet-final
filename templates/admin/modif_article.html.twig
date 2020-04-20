@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/gestion_article.css') }}">
+{% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+
+        {{ form_start(form)}}
+
+        {{ form_row(form.title, {'label': 'Titre:'}) }}
+        {{ form_row(form.content, {'label': 'Article:'}) }}
+        {{ form_row(form.picture, {'label': 'Image:'}) }}
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary"><strong>Enregistrer</strong></button>
+        </div>
+
+        {{ form_end(form)}}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/gestion_article.js') }}"></script>
+{% endblock %}

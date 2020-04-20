@@ -11,59 +11,40 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/{id}", defaults={"id": null}, requirements={"id": "\d+"})
+     * @Route("/article/")
      */
-    public function index(Request $request, EntityManagerInterface $manager, ArticleRepository $repository,$id)
+    public function index(Request $request,
+                          EntityManagerInterface $manager,
+                          ArticleRepository $repository,
+                          KernelInterface $appKernel)
     {
-        $originalImage = null;
-
-        if (is_null($id)) {
             $article = new Article();
-        } else {
-            $article = $manager->find(Article::class, $id);
-
-            if (is_null($article)) {
-                throw new NotFoundHttpException();
-            }
-            if (!is_null($article->getPicture())) {
-                $originalImage = $article->getPicture();
-
-                $article->setPicture(
-                    new File($this->getParameter('upload_dir') . $article->getPicture())
-                );
-            }
-        }
 
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $image */
-            $image = $article->getPicture();
             $article->setCreatedAt(new \DateTime());
 
 
-            if (!is_null($image)) {
-                $filename = uniqid() . '.' . $image->guessExtension();
+            $uploadFolder = $appKernel->getProjectDir() . "/public";
+            $baseFolder = "/img/";
 
-                $image->move(
-                    $this->getParameter('upload_dir'),
-                    $filename
-                );
+            /** @var UploadedFile $image */
+            $image= $article->getPicture();
 
-                $article->setPicture($filename);
-                if (!is_null($originalImage)) {
-                    unlink($this->getParameter('upload_dir') . $originalImage);
-                }
-            } else {
-                $article->setPicture($originalImage);
-            }
+            $fileName = $image->getClientOriginalName();
+
+            $image->move($uploadFolder . $baseFolder, $fileName);
+            $article->setPicture($baseFolder . $fileName);
 
             $manager->persist($article);
             $manager->flush();
@@ -78,8 +59,57 @@ class ArticleController extends AbstractController
             [
             'form' => $form->createView(),
             'article' => $articles,
-            'original_image' => $originalImage
+
             ]);
+    }
+
+    /**
+     * @Route("article/edit/{id}")
+     */
+    public function edit(Request $request,
+                         ArticleRepository $articleRepository,
+                         EntityManagerInterface  $manager,
+                         $id,KernelInterface $appKernel)
+    {
+        $article = $articleRepository->find($id);
+        $originalImage = null;
+
+        if(!empty($article->getPicture())){
+            $originalImage=$article->getPicture();
+            $article->setPicture(
+                new File($this->getParameter('upload_dir') . $article->getPicture())
+            );
+        }
+
+
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            if (!empty($article->getPicture())) {
+
+
+                /** @var UploadedFile $image */
+                $image = $article->getPicture();
+
+                $fileName = $image->getClientOriginalName();
+
+                $image->move($this->getParameter('upload_dir') , $fileName);
+                $article->setPicture(  $fileName);
+            }else{
+                $article->setPicture($originalImage);
+            }
+
+            $manager->persist($article);
+            $manager->flush();
+
+            return $this->redirectToRoute('app_admin_article_index');
+        }
+        return $this->render('admin/modif_article.html.twig', [
+            'form' => $form->createView(),
+            'article' => $article->getId(),
+        ]);
     }
 
 

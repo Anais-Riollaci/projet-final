@@ -1,5 +1,8 @@
+body{
+    color: white;
+}
+
 div.container{
-    background-color: white;
     font-size: 15px;
     padding: 0 10px 70px 10px;
 }

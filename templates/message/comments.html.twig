@@ -18,7 +18,7 @@
                     {{ form_start(form) }}
                     {{ form_row(form.content,{'label': 'Exprimez vous ici:'}) }}
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-sm">Envoyer</button>
+                    <button type="submit" class="btn-send btn-sm">Enregistrer</button>
                 </div>
                     {{ form_end(form) }}
             </div>
@@ -26,7 +26,7 @@
 
         <div class="users-avis">
             <div class="col text-center">
-                <button id="bouton" class="btn btn-dark">Voir tous les articles</button>
+                <button id="bouton" class="btn btn-dark">Voir tous les avis</button>
             </div>
             <div class="hide" id="formToHide">
                     {% for comments in comment %}

@@ -24,13 +24,13 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="3",max="100", minMessage="Votre mot de passe doit comporter entre 3 et 100 caracteres")
+     * @Assert\Length(min="3",max="100", minMessage="Votre prénom doit comporter entre 3 et 100 caracteres")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="3",max="100", minMessage="Votre mot de passe doit comporter entre 3 et 100 caracteres")
+     * @Assert\Length(min="3",max="100", minMessage="Votre nom doit comporter entre 3 et 100 caracteres")
      */
     private $lastName;
 

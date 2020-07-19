@@ -114,7 +114,11 @@ iframe {
 
 /*****AVIS****/
 section.comments{
+<<<<<<< HEAD
     text-align: center;
+=======
+    text-align: left;
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
     margin: 40px 0 30px 0;
 }
 

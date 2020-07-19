@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 section{
     height: 100vh;
+=======
+body{
+    color: white;
+}
+
+div.container{
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
     font-size: 15px;
     padding: 10px 50px;
     background-color: white;

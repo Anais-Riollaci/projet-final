@@ -13,10 +13,16 @@ h1{ text-align: center;}
 .login{
     margin-top: 100px;
 }
+<<<<<<< HEAD
 
 form{
     width: 80%;
     margin: 30px auto 0 auto;
+=======
+.form-group{
+    width: 80%;
+    margin-left: 40px;
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 }
 
 

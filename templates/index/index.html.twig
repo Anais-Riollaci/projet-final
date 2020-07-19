@@ -155,17 +155,29 @@
             <h3>Avis</h3>
             {% for comment in comments %}
                 <hr>
+<<<<<<< HEAD
                 <p>Posté par: <strong>{{ comment.user }}</strong>,<br> le {{ comment.createAt | date('d/m/Y')}} </p>
+=======
+                <p>Posté par : {{ comment.user }}, le {{ comment.createAt | date('d/m/Y')}} </p>
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
                 <p>{{ comment.content }}</p>
                 <hr>
             {% endfor %}
             {% if app.user is null %}
                 <a href="{{ path('user_login') }}">
+<<<<<<< HEAD
                     <button type="submit" class="btn btn-dark btn-md" style="margin: 0 auto">Laissez nous votre avis</button>
                 </a>
             {% else %}
                 <a href="{{ path('comment') }}">
                     <button type="submit" class="btn btn-dark btn-md" style="margin: 0 auto">Laissez nous votre avis</button>
+=======
+                    <button type="submit" id="cat" class="btn btn-dark btn-md">Laissez nous votre avis</button>
+                </a>
+            {% else %}
+                <a href="{{ path('comment') }}">
+                    <button type="submit" id="cat" class="btn btn-dark btn-md">Laissez nous votre avis</button>
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
                 </a>
             {% endif %}
             </section>

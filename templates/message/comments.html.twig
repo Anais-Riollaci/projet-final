@@ -19,7 +19,11 @@
                     {{ form_start(form) }}
                     {{ form_row(form.content,{'label': 'Exprimez vous ici:'}) }}
                 <div class="text-center">
+<<<<<<< HEAD
                     <button type="submit" class="btn btn-primary btn-sm">Envoyer</button>
+=======
+                    <button type="submit" class="btn-send btn-sm">Enregistrer</button>
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
                 </div>
                     {{ form_end(form) }}
             </div>
@@ -32,14 +36,22 @@
             <div class="hide" id="formToHide">
                     {% for comments in comment %}
                         <hr>
+<<<<<<< HEAD
                     <p>Posté par: {{ comments.user }}, le{{ comments.createAt | date('d/m/Y')}} </p>
+=======
+                    <p>Posté par : {{ comments.user }}, le {{ comments.createAt | date('d/m/Y')}} </p>
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
                     <p>{{ comments.content }}</p>
                         <hr>
                     {% endfor %}
             </div>
         </div>
+<<<<<<< HEAD
     </div>
 </section>
+=======
+</div>
+>>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 {% endblock %}
 
 {% block javascripts %}

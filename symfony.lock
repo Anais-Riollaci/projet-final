@@ -96,6 +96,9 @@
     "egulias/email-validator": {
         "version": "2.1.17"
     },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.4"
+    },
     "monolog/monolog": {
         "version": "1.25.3"
     },

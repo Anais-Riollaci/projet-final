@@ -5,28 +5,11 @@ div.container {
     max-height: 100%;
 }
 
-<<<<<<< HEAD
 div.banniere img {
     width: 155%;
     background-color: white;
     box-shadow: 1px 2px 11px -1px rgba(0, 0, 0, 1);
     margin: 5px 0 30px -58px;
-=======
-.btn-send{
-    background-color: #F5871F;
-    border-radius: 5px;
-    border: 1px solid #F5871F;
-    color: white;
-}
-
-div.banniere img {
-    width: 145%;
-    border: 1px solid black;
-    box-shadow: 0px 0px 5px #000,
-    0px 0px 30px #777;
-    background-color: white;
-    margin: 20px 0 30px -70px;
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 }
 
 span.dark { color: #8B0000; }
@@ -46,7 +29,6 @@ button { margin-top: 10px;}
 #bouton{
     margin: 30px;
 }
-<<<<<<< HEAD
 
 
 @media screen and (min-width: 480px) {
@@ -70,20 +52,12 @@ button { margin-top: 10px;}
     }
 }
 
-=======
-/************************************************ECRAN 768PX*******************************************/
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 @media screen and (min-width: 768px) {
     div.banniere img {
         width: 135%;
         margin-left: -95px;
     }
 }
-<<<<<<< HEAD
-
-=======
-/************************************************ECRAN 1024PX*******************************************/
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 @media screen and (min-width: 1024px) {
 
     div.banniere img {
@@ -94,13 +68,8 @@ button { margin-top: 10px;}
     .depo-avis{
         margin-left: 100px;
     }
-<<<<<<< HEAD
 
 
-=======
-}
-/***********************************************ECRAN 1240PX******************************************/
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 @media screen and (min-width: 1240px) {
     div.banniere img {
         margin-left: -135px;
@@ -110,17 +79,11 @@ button { margin-top: 10px;}
         margin-left: 130px;
     }
 }
-<<<<<<< HEAD
-
-=======
-/***********************************************ECRAN 1600PX******************************************/
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
 @media screen and (min-width: 1600px) {
     div.banniere img {
         width: 135%;
         margin-left: -160px;
     }
-<<<<<<< HEAD
 }
 
 
@@ -150,6 +113,3 @@ button { margin-top: 10px;}
 
 
 
-=======
-}
->>>>>>> d32158c23a5bdcda0e691bd397bd553e8f0404eb
